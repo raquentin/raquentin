@@ -1,31 +1,38 @@
-# Create React App
+# create-svelte
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Deploy Your Own
+## Creating a project
 
-Deploy your own Create React App project with Vercel.
+If you're seeing this, you've probably already done this step. Congrats!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-_Live Example: https://create-react-template.vercel.app/_
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-## Available Scripts
+## Developing
 
-In the project directory, you can run:
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-### `npm start`
+```bash
+npm run dev
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+## Building
 
-### `npm test`
+To create a production version of your app:
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm run build
+```
 
-### `npm run build`
+You can preview the production build with `npm run preview`.
 
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
