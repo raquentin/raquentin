@@ -6,8 +6,8 @@
 <!-- Whenever pathname changes, unmount (page transition out), then re-mount (page transition in) -->
 {#key pathname}
     <div
-    in:fly={{ x: -5, duration: 250, delay: 250 }}
-    out:fly={{ x: 5, duration: 250 }}
+    in:fly={{ x: -20, duration: 200, delay: 200 }}
+    out:fly={{ x: 20, duration: 200 }}
     >
         <slot />
     </div>
