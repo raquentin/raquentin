@@ -3,8 +3,13 @@
 
 <div id="content">
     <div>
-        <h1>resume</h1>
-        <a href="/"><p>&larr; back to landing page</p></a>
+        <div id="titleSplit">
+            <div>
+                <h1>resume</h1>
+                <a href="/"><p>&larr; back to landing page</p></a>
+            </div>
+            <a class="navBtn" download href="RaceWilliamsResume.pdf"><h2 style="transform: translateY(-0.02em);">download PDF</h2></a>
+        </div>
         <div id="resume">
             <h3>Work Experience</h3>
                 <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Board of Education</span> &nbsp;Livestreaming Intern (March 2021 - June 2022)</p>
@@ -58,6 +63,23 @@
         a:hover {
             p {
                 color: var(--pink);
+            }
+        }
+        #titleSplit {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .navBtn {
+                border: 0.4em solid var(--pink);
+                border-radius: 0.8em;
+                width: 14em;
+                height: min-content;
+                text-align: center;
+                padding: 0.8em 0em;
+                transform: translateY(1.3em);
+            }
+            .navBtn:hover {
+                background-color: var(--pink);
             }
         }
         #resume {
