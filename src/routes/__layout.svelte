@@ -20,7 +20,6 @@
 <style lang="scss">
     :global(:root) {
         --pink: #F490B4;
-        --purple: purple;
         --white: #ffffff;
         --grey: #242424;
     }
