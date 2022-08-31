@@ -22,6 +22,8 @@
         <a class="navBtn" href="/apps"><h2 style="transform: translateY(-0.05em);">apps</h2></a>
         <a class="navBtn" href="/library"><h2 style="transform: translateY(0.01em);">library</h2></a>
         <a class="navBtn" href="/resume"><h2 style="transform: translateY(-0.02em);">resume</h2></a>
+        <a class="navBtn" href="/contact"><h2 style="transform: translateY(-0.02em);">contact</h2></a>
+
     </div>
 </div>
 
@@ -52,7 +54,7 @@
             .navBtn {
                 border: 0.4em solid var(--pink);
                 border-radius: 0.8em;
-                width: 16em;
+                width: 14em;
                 text-align: center;
                 padding: 0.8em 0em;
                 margin-right: 0.8em;
