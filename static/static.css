@@ -3,7 +3,6 @@
     padding: 0em;
     margin: 0em;
     font-family: 'Ubuntu', 'sans-serif';
-    font-size: 16px;
     transition: all .26s ease !important;
     color: var(--white);
 }
@@ -17,6 +16,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     min-width: 100vw;
+    font-size: 16px;
 }
 
 h1 {
@@ -39,40 +39,56 @@ a {
     text-decoration: none; /*removes underline*/
 }
 
-@media all and (max-width: 1200px) {
-    * {
-        font-size: 14px;
+
+
+@media all and (max-width: 700px) {
+    body {
+        font-size: 9px;
     }
     p {
-        font-size: 1.3em;
+        font-size: 1.35em;
     }
-    .link {
-        font-size: 1em;
+    h1 {
+        font-size: 3.8em;
+        text-align: center;
+        width: 100%;
+    }
+    h2 {
+        font-size: 1.7em;
+    }
+}
+@media all and (max-width: 835px) {
+    body {
+        font-size: 12px;
     }
 }
 @media all and (max-width: 900px) {
-    * {
+    body {
         font-size: 15px;
     }
 }
-@media all and (max-width: 612px) {
-    h1 {
-        font-size: 4em;
-    }
-}
-
-
 @media all and (min-width: 2110px) {
-    * {
+    body {
         font-size: 24px;
     }
 }
-
 @media all and (min-width: 3510px) {
-    * {
+    body {
         font-size: 35px;
     }
 }
+@media all and (max-width: 500px) {
+    h1 {
+        font-size: 3em !important;
+    }
+    p {
+        font-size: 1.1em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+}
+
 
 @-moz-document url-prefix() {
     html {

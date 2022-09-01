@@ -13,12 +13,26 @@
             years = String(years) + "0"
         }
     }, 69)
+
+
+    let buttonDirText = "to the right"
+    function checkButtonDirText() {
+        if (window.innerWidth < 1329) {
+            buttonDirText = "below"
+        } else {
+            buttonDirText = "to the right"
+        }
+    }
+
 </script>
 
+<svelte:window on:resize={() => checkButtonDirText()} />
+
+
 <ContentCenter>
-    <div>
+    <div id="textBox">
         <h1>racewilliams.com</h1>
-        <p>{greeting} I'm Race Williams, an <span style="color: var(--pink); font-size: 1em; margin-left: -0.08em">{years}</span> year-old student and software engineer working to progress the ability of computers to emulate human reasoning. Along the way, I'll continue to build open source applications, upload free resources to the rw.com library, and solve problems with software for employers. Learn more via the buttons to the right.</p>
+        <p>{greeting} I'm Race Williams, an <span style="color: var(--pink); font-size: 1em; margin-left: -0.08em">{years}</span> year-old student and software engineer working to progress the ability of computers to emulate human reasoning. Along the way, I'll continue to build open source applications, upload free resources to the rw.com library, and solve problems with software for employers. Learn more via the buttons {buttonDirText}.</p>
     </div>
     <div id="navBtnBox">
         <a class="navBtn" href="/apps"><h2 style="transform: translateY(-0.05em);">apps</h2></a>
@@ -36,6 +50,7 @@
         font-weight: bold;
         max-width: 26em;
         margin-left: 0.1em;
+        inline-size: 90vw;
     }
     #navBtnBox {
         display: flex;
@@ -54,6 +69,36 @@
         }
         .navBtn:hover {
             background-color: var(--pink);
+        }
+    }
+
+    #textBox {
+        max-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media all and (max-width: 1329px) {
+        #navBtnBox {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3em;
+            transform: translateY(-2em);
+        }
+        p {
+            text-align: center;
+            padding: 0.5em 0em;
+        }
+    }
+    @media all and (max-width: 835px) {
+        #navBtnBox {
+            gap: 1em;
+            .navBtn {
+                width: 8em;
+                margin-bottom: 1em;
+                padding: 0.4em 0em;
+            }
         }
     }
 </style>
