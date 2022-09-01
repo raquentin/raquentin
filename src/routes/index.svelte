@@ -45,6 +45,7 @@
 <style lang="scss">
     h1 {
         color: var(--pink);
+        margin-left: 0.2em;
     }
     p {
         font-weight: bold;
@@ -83,15 +84,22 @@
         #navBtnBox {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            width: 100%;
             gap: 3em;
             transform: translateY(-2em);
+            .navBtn {
+                margin: auto auto;
+            }
         }
         p {
             text-align: center;
             padding: 0.5em 0em;
         }
+        h1 {
+            margin-left: 0em;
+        }
     }
-    @media all and (max-width: 835px) {
+    @media all and (max-width: 635px) {
         #navBtnBox {
             gap: 1em;
             .navBtn {
