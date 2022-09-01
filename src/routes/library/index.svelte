@@ -1,7 +1,9 @@
 <script>
+    import ContentTop from "../../comps/ContentTop.svelte"
+
     import cardData from "./library.json"
-    const cards = cardData.data
     import Card from "../../comps/Card.svelte"
+    const cards = cardData.data
 </script>
 
 <div id="content">

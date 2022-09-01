@@ -1,7 +1,8 @@
 <script>
+    import ContentTop from "../comps/ContentTop.svelte"
 </script>
 
-<div id="content">
+<ContentTop>
     <div>
         <div id="titleSplit">
             <div>
@@ -47,59 +48,54 @@
                     <p class="roleDesc">• Earned Tech Caregiver certification to teach basic online security measures in ways easy to understand</p>
         </div>
     </div>
-</div>
+</ContentTop>
 
 <style lang="scss">
-    #content {
-        height: 100vh;
-        max-height: 100vh;
-        padding: 6em 12em;
-        h1 {
+    h1 {
+        color: var(--pink);
+    }
+    a {
+        font-weight: bold;
+    }
+    a:hover {
+        p {
             color: var(--pink);
         }
-        a {
-            font-weight: bold;
+    }
+    #titleSplit {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .navBtn {
+            border: 0.4em solid var(--pink);
+            border-radius: 0.8em;
+            width: 14em;
+            height: min-content;
+            text-align: center;
+            padding: 0.8em 0em;
+            transform: translateY(1.3em);
         }
-        a:hover {
-            p {
-                color: var(--pink);
-            }
+        .navBtn:hover {
+            background-color: var(--pink);
         }
-        #titleSplit {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            .navBtn {
-                border: 0.4em solid var(--pink);
-                border-radius: 0.8em;
-                width: 14em;
-                height: min-content;
-                text-align: center;
-                padding: 0.8em 0em;
-                transform: translateY(1.3em);
-            }
-            .navBtn:hover {
-                background-color: var(--pink);
-            }
+    }
+    #resume {
+        margin-top: 1.5em;
+        width: 100%;
+        padding-bottom: 10em;
+        h3 {
+            margin-bottom: 0.5em;
         }
-        #resume {
-            margin-top: 1.5em;
-            width: 100%;
-            padding-bottom: 10em;
-            h3 {
-                margin-bottom: 0.5em;
-            }
-            p {
-                margin-bottom: 0.15em;
-                line-height: 1.3em;
-            }
-            .roleTitle {
-                padding-left: 0.7em;
-                margin-top: 0.8em;
-            }
-            .roleDesc {
-                padding-left: 1.6em;
-            }
+        p {
+            margin-bottom: 0.15em;
+            line-height: 1.3em;
+        }
+        .roleTitle {
+            padding-left: 0.7em;
+            margin-top: 0.8em;
+        }
+        .roleDesc {
+            padding-left: 1.6em;
         }
     }
 </style>

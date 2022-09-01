@@ -1,9 +1,11 @@
 <script>
+    import ContentCenter from "../comps/ContentCenter.svelte"
+
     let phoneMid = "801-9"
     let mailMid = "race@"
 </script>
 
-<div id="content">
+<ContentCenter>
     <div>
         <h1>contact</h1>
         <a href="/"><p>&larr; back to landing page</p></a>
@@ -218,39 +220,30 @@
         <a href="https://discordapp.com/users/raise#2848"><h2>raise#2848</h2></a>
         <a href="https://www.instagram.com/racussy/"><h2>@racussy</h2></a>
     </div>
-</div>
+</ContentCenter>
 
 <style lang="scss">
-    #content {
+    h1 {
+        color: var(--pink);
+    }
+    a {
+        font-weight: bold;
+    }
+    a:hover {
+        h2 {
+            color: var(--pink);
+        }
+    }
+    #contactBox {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 100vh;
-        max-height: 100vh;
-        padding: 0em 12em;
-        transform: translateY(-3em);
-        h1 {
-            color: var(--pink);
-        }
-        a {
-            font-weight: bold;
-        }
-        a:hover {
-            h2 {
-                color: var(--pink);
-            }
-        }
-        #contactBox {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-direction: column;
-            gap: 2em;
-            transform: translateY(0.6em);
-            margin-right: 1em;
-        }
-        .realInfo {
-            display: none;
-        }
+        flex-direction: column;
+        gap: 2em;
+        transform: translateY(0.6em);
+        margin-right: 1em;
+    }
+    .realInfo {
+        display: none;
     }
 </style>
