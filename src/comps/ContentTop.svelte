@@ -22,4 +22,9 @@
             padding: 6em 5em;
         }
     }
+    @media all and (max-width: 500px) {
+        #content {
+            padding: 6em 3em;
+        }
+    }
 </style>

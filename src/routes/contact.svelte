@@ -230,7 +230,7 @@
         font-weight: bold;
     }
     a:hover {
-        h2 {
+        p {
             color: var(--pink);
         }
     }

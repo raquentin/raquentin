@@ -98,4 +98,28 @@
             padding-left: 1.6em;
         }
     }
+
+    @media all and (max-width: 740px) {
+        #resume {
+            width: 110%;
+        }
+        #titleSplit {
+            flex-direction: column;
+            gap: 0.6em;
+            .navBtn {
+                width: 80%;
+                margin-bottom: 1.2em;
+            }
+        }
+
+    }
+    @media all and (max-width: 500px) {
+        #titleSplit {
+            .navBtn {
+                width: 80%;
+                margin: auto auto 1.2em auto
+            }
+        }
+    }
+
 </style>
