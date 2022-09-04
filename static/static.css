@@ -17,6 +17,7 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -47,11 +48,6 @@ a {
     }
     p {
         font-size: 1.35em;
-    }
-    h1 {
-        font-size: 3.8em;
-        text-align: center;
-        width: 100%;
     }
     h2 {
         font-size: 1.7em;
