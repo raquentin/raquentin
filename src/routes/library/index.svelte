@@ -6,7 +6,7 @@
     const cards = cardData.data
 </script>
 
-<div id="content">
+<ContentTop>
     <div>
         <h1>library</h1>
         <a href="/"><p>&larr; back to landing page</p></a>
@@ -16,31 +16,33 @@
             {/each}
         </div>
     </div>
-</div>
+</ContentTop>
 
 <style lang="scss">
-    #content {
-        height: 100vh;
-        max-height: 100vh;
-        padding: 6em 12em;
-        h1 {
+    h1 {
+        color: var(--pink);
+    }
+    a {
+        font-weight: bold;
+    }
+    a:hover {
+        p {
             color: var(--pink);
         }
-        a {
-            font-weight: bold;
-        }
-        a:hover {
-            p {
-                color: var(--pink);
-            }
-        }
+    }
+    #grid {
+        display: grid;
+        margin-top: 1.5em;
+        grid-template-columns: repeat(auto-fit, minmax(13em, 5fr));;
+        gap: 2em;
+        padding: 0 0.4em;
+        padding-bottom: 10em;
+    }
+    @media all and (max-width: 800px) {
         #grid {
-            display: grid;
-            margin-top: 1.5em;
-            grid-template-columns: repeat(auto-fit, minmax(13em, 5fr));;
-            gap: 2em;
-            padding: 0 0.4em;
-            padding-bottom: 10em;
+            gap: 1.4em;
+            padding: 0 0.1em;
+            grid-template-columns: repeat(auto-fit, minmax(10em, 5fr));;
         }
     }
 </style>

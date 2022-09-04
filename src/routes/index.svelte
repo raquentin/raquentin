@@ -109,4 +109,11 @@
             }
         }
     }
+    @media all and (max-width: 700px) {
+        h1 {
+            font-size: 3.8em;
+            text-align: center;
+            width: 100%;
+        }
+    }
 </style>

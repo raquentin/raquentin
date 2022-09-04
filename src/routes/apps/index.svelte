@@ -38,4 +38,12 @@ const cards = cardData.data
         padding: 0 0.4em;
         padding-bottom: 10em;
     }
+    
+    @media all and (max-width: 800px) {
+        #grid {
+            gap: 1.4em;
+            padding: 0 0.1em;
+            grid-template-columns: repeat(auto-fit, minmax(10em, 5fr));;
+        }
+    }
 </style>
