@@ -14,7 +14,7 @@
         <div id="resume">
             <h3>Work Experience</h3>
                 <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Board of Education</span> &nbsp;Livestreaming Intern (March 2021 - June 2022)</p>
-                    <p class="roleDesc">• Operated cameras, PCs, & mixers to stream county board meetings; 1/1 BoE student interns; paid in cash, tech  skills, & new political perspectives</p>
+                    <p class="roleDesc">• Operated cameras, PCs, & mixers to stream county board meetings; paid in cash, tech  skills, & new political perspectives</p>
                 <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Sheepa</span> &nbsp;Co-founder and Web Developer (May 2021 - July 2022)</p>
                     <p class="roleDesc">• Began as a clothing company, morphed into electronics resale and sneaker store. Former clothing website now serves as a template for SvelteKit web-apps</p>
                     <p class="roleDesc">• Initial investment of $200, >$12,000 in total sales; 100% positive reviews</p>
