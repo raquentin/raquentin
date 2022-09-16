@@ -12,7 +12,7 @@ const cards = cardData.data
         <a href="/"><p>&larr; back to landing page</p></a>
         <div id="grid">
             {#each cards as card}
-                <Card {card}/>
+                <Card type={'apps'} {card}/>
             {/each}
         </div>
     </div>

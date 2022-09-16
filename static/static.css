@@ -3,7 +3,7 @@
     padding: 0em;
     margin: 0em;
     font-family: 'Ubuntu', 'sans-serif';
-    transition: all .26s ease !important;
+    transition: all .26s ease;
     color: var(--white);
 }
 

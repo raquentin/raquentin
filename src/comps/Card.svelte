@@ -1,13 +1,14 @@
 <script>
     export let card
+    export let type
 </script>
 
-<div class="card">
+<a href="/{type}/{card.text.replace(/\s+/g, '')}" class="card">
     <div class="bg" style="background-image: url('img/{card.img}');" />
     <div id="cont">
         <p>{card.text.toLowerCase()}</p>
     </div>
-</div>
+</a>
 
 <style lang="scss">
     .card {
@@ -36,6 +37,7 @@
         .bg {
             background-size: cover;
             height: 98%;
+            transition: all 0.42s ease !important;
         }
     }
     .card:hover {

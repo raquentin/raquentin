@@ -12,7 +12,7 @@
         <a href="/"><p>&larr; back to landing page</p></a>
         <div id="grid">
             {#each cards as card}
-                <Card {card}/>
+                <Card type={'library'} {card}/>
             {/each}
         </div>
     </div>
