@@ -2,75 +2,93 @@
     "data": [
         {
             "text": "yung doug asmr",
-            "img": "doug.jpg"
+            "img": "doug.jpg",
+            "directLink": "https://www.youtube.com/channel/UC-wgQWLwSrte9JhIQC02CQg"
+        },
+        {
+            "text": "race drinks water",
+            "img": "rdw.jpg",
+            "directLink": "https://www.youtube.com/channel/UC96Ry0RFXLMbSXc0EwPvesg"
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg"
-        },
-        {
-            "text": "coming soon",
-            "img": "coming soon.jpg"
+            "img": "coming soon.jpg",
+            "directLink": ""
         }
     ]
 }
