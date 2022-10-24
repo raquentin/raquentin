@@ -9,43 +9,49 @@
                 <h1>resume</h1>
                 <a href="/"><p>&larr; back to landing page</p></a>
             </div>
-            <a class="navBtn" download href="RaceWilliamsResume.pdf"><h2 style="transform: translateY(-0.02em);">download PDF</h2></a>
+            <a class="navBtn" download href="Race_Williams_Resume.pdf"><h2 style="transform: translateY(-0.02em);">download PDF</h2></a>
         </div>
         <div id="resume">
-            <h3>Work Experience</h3>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Board of Education</span> &nbsp;Livestreaming Intern (March 2021 - June 2022)</p>
-                    <p class="roleDesc">• Operated cameras, PCs, & mixers to stream county board meetings; paid in cash, tech  skills, & new political perspectives</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Sheepa</span> &nbsp;Co-founder and Web Developer (May 2021 - July 2022)</p>
-                    <p class="roleDesc">• Began as a clothing company, morphed into electronics resale and sneaker store. Former clothing website now serves as a template for SvelteKit web-apps</p>
-                    <p class="roleDesc">• Initial investment of $200, >$12,000 in total sales; 100% positive reviews</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• NPM Properties</span> &nbsp;App Engineer and Assitant Network Manager Intern (May 2022 - August 2022)</p>
-                    <p class="roleDesc">• Remade the interface of tornado warning app TornadoFree in React Native</p>
-                    <p class="roleDesc">• Analyzed the emergency weather app market to find a niche that can separate TornadoFree from competitors</p>
-                    <p class="roleDesc">• Documented current Network Manager's daily tasks so future managers can more efficiently take over the job</p>
-                    <p class="roleDesc">• Began shifting company services from deprecated technologies onto modern frameworks</p>
-                <br><br>
             <h3>Education</h3>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County High School</span> &nbsp;(August 2018 - May 2022)</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Georgia Institute of Technology</span> &nbsp;(August 2022 - present)</p>
-                    <p class="roleDesc">• Gold Scholarship recipient</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Georgia Institute of Technology</span> &nbsp;(Aug 2022 - Dec 2026 expected)</p>
+                    <p class="roleDesc">•  BS/MS Candidate in Computer Science, BS Candidate in Applied Russian Language and Culture.</p>
+                    <p class="roleDesc">• Gold Scholarship recipient; 4.00 GPA.</p>
                 <br><br>
-            <h3>Projects</h3>
+            <h3>Work Experience</h3>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• NPM Properties</span> &nbsp;Assistant Systems Administrator (May 2022 - Aug 2022)</p>
+                    <p class="roleDesc">• Created a more appealing and accessible interface for tornado alert app TornadoFree by applying UI/UX principles to a Figma mockup and a React Native mobile app. This app helps renters inside and outside of NPM Properties to seek shelter from tornadoes during warnings.</p>
+                    <p class="roleDesc">• Improved present, and future company networks by documenting Systems Administrator tasks so future employees can better assume the position.</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Board of Education</span> &nbsp;Live-streaming Intern (Mar 2021 - Jul 2022)</p>
+                    <p class="roleDesc">•  Live-streamed Board of Education meetings on Zoom and YouTube to a total of 7000 local viewers over 15
+                        months by operating cameras, computers, and other audiovisual devices.</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Sheepa</span> &nbsp;Owner (May 2021 - Aug 2022)</p>
+                    <p class="roleDesc">• Turned an initial investment of $200 to more than $12,000 in total sales by selling refurbished electronics.</p>
+                    <p class="roleDesc">• Increased sales over time by analyzing competitor pricing, maintaining 100% positive reviews, and promptly
+                        responding to questions from customers.</p>
+                <br><br>
+            <h3>Projects and Leadership</h3>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Eatcode</span> &nbsp;Project Manager</p>
+                    <p class="roleDesc">• Leading a team of six Georgia Tech CS students to develop Eatcode, a software engineering technical interview question training website.</p>
+                    <p class="roleDesc">• Assigning front and back-end tasks to myself and team members based on our strengths and weaknesses, merging pull requests and having other members merge mine, organizing weekly team meetings, monitoring progress with respect to deadlines, and more.</p>
                 <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• RaceWilliams.com</span> &nbsp;Creator, etc.</p>
-                    <p class="roleDesc">• Site serves as both my software engineering portfolio and a platform to distribute my apps</p>
-                    <p class="roleDesc">• Freelance works include prescription drug lookup form, installing SSL certificates, and mood-uplifting web chatbot</p>
-                    <p class="roleDesc">• Open source and personal applications include AlgoTrainer (a CS technical interview question training site),  AbstainBot (an anti-addiction AI chatbot), ChemBot (a chatbot implementation of the periodic table), and more</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• STEAMBreak</span> &nbsp;Creator, etc.</p>
-                    <p class="roleDesc">• Started virtual jeopardy-style Capture the Flag competition to increase Harris County School District K-12 participation in STEAM activities despite Coronavirus</p>
-                    <p class="roleDesc">• Wrote >200 individual challenges across the various STEAM disciplines</p>
-                    <p class="roleDesc">• Deployed customized CTFd Docker image via Digital Ocean droplet with Ubuntu and Nginx</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Technology Student Association (TSA)</span> &nbsp;First Vice President</p>
-                    <p class="roleDesc">• Developed TSA-themed retro Pong game in Python with PyGame as an ice breaker for new members at club  meetings</p>
-                    <p class="roleDesc">• Led development of Py1600 (SAT studying app) to win 2nd in state for Software Development</p>
-                    <p class="roleDesc">• Gave Coding lecture at 2021 GA TSA Leadercon; taught a few basic Python concepts and explained parts of Py1600’s codebase</p>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Harris County Air Force Association CyberPatriot</span> &nbsp;Batch/C++ Programmer for Delta Cyberforce</p>
-                    <p class="roleDesc">• Coded security scripts, automating our way to National Gold Tier one year and then National Platinum Tier the  next, breaking school record both times</p>
-                    <p class="roleDesc">• Used skills learned in CyberPatriot to create forensic technology problems for STEAMBreak (see above)</p>
-                    <p class="roleDesc">• Earned Tech Caregiver certification to teach basic online security measures in ways easy to understand</p>
+                    <p class="roleDesc">• Changing the definition of the online portfolio by combining open source projects with a library of free
+                        resources ranging from music production loops, electronic drum-kits, ASMR, and video reviews of different
+                        water brands.</p>
+                    <p class="roleDesc">• Amassed over 15,000 downloads of music loops by producers and 11,000 views across various YouTube
+                        channels.</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• STEAMBreak</span> &nbsp;Web Developer, Creator, Fundraiser, Everything</p>
+                    <p class="roleDesc">• Increased K-12 STEAM education in my county in spite of Coronavirus by creating a virtual jeopardy-style Capture the Flag competition.</p>
+                    <p class="roleDesc">• Wrote >200 challenges for students in topics including art history, Python, chemistry, future career options, steganography, and more.</p>
+                    <p class="roleDesc">• Future competitions held via my software company Porkana.com.</p>
+                <br><br>
+            <h3>Skills</h3>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Programming Technologies:</span> &nbsp;MongoDB, ExpressJS, NodeJS, ReactJS, PyQt, SvelteKit, Figma, GIMP, Git,
+                    HTML/CSS/JS, Java, Python, TypeScript, React Native, GitHub, Windows, Unix, Nginx, VPSs</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Relavant Courses:</span> &nbsp;Object-Oriented Programming (Java), Computer Science Principles (Python)</p>
+                <br><br>
+            <h3>Public Presentations</h3>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Georgia Technology Student Association:</span> &nbsp;Lectured on how codebases become world-changing applications.</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• TEDxGeorgiaTech:</span> &nbsp;Stand-up comedy act about computer science majors.</p>
         </div>
     </div>
 </ContentTop>

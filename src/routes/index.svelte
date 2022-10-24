@@ -2,19 +2,12 @@
     import ContentCenter from "../comps/ContentCenter.svelte"
 
     let greeting = "Hello!"
-    const birthdate = new Date(2003, 10, 30, 1, 30, 0, 0);
-
-    var now = new Date().getTime()
-    let years = parseFloat(((now - birthdate) / 31556952000).toFixed(9))
-    let count = setInterval(function() {
-        var now = new Date().getTime()
-        var distance = now - birthdate
-        years = parseFloat((distance / 31556952000).toFixed(9))
-        while (String(years).length < 12) {
-            years = String(years) + "0"
-        }
+    let years = (new Date() - new Date('October 30, 2003 01:30:00')) / (365.25 * 24 * 60 * 60 * 1000)
+    years = years.toString().substring(0, 12)
+    setInterval(() => {
+        let time = (new Date() - new Date('October 30, 2003 01:30:00')) / (1000 * 60 * 60 * 24 * 365.25)
+        years = time.toString().substring(0, 12)
     }, 69)
-
 
     let buttonDirText = "to the right"
     function checkButtonDirText() {

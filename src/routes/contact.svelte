@@ -218,6 +218,7 @@
         <a href="mailto:{mailMid}gatech.edu"><h2>{mailMid}gatech.edu</h2></a>
         <a href="tel: 706-{phoneMid}-9509"><h2>(706) {phoneMid}509</h2></a>
         <a href="https://discordapp.com/users/raise#2848"><h2>raise#2848</h2></a>
+        <a href="https://www.linkedin.com/in/r4c3/"><h2>/in/r4c3</h2></a>
     </div>
 </ContentCenter>
 
