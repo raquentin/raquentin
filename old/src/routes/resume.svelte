@@ -13,8 +13,8 @@
         </div>
         <div id="resume">
             <h3>Education</h3>
-                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Georgia Institute of Technology</span> &nbsp;(Aug 2022 - Dec 2026 expected)</p>
-                    <p class="roleDesc">•  BS/MS Candidate in Computer Science, BS Candidate in Applied Russian Language and Culture.</p>
+                <p class="roleTitle"><span style="color: var(--pink); font-size: 1em; font-weight: bold;">• Georgia Institute of Technology</span> &nbsp;(Aug 2022 - Dec 2025 expected)</p>
+                    <p class="roleDesc">• BS/MS Candidate in Computer Science, BS Candidate in Applied Russian Language and Culture.</p>
                     <p class="roleDesc">• Gold Scholarship recipient; 4.00 GPA.</p>
                 <br><br>
             <h3>Work Experience</h3>

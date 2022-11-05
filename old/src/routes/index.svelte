@@ -26,7 +26,7 @@
 <ContentCenter>
     <div id="textBox">
         <h1>racewilliams.com</h1>
-        <p>{greeting} I'm Race Williams, an <span style="color: var(--pink); font-size: 1em; margin-left: -0.08em">{years}</span> year-old student and software engineer working to progress the ability of computers to emulate human reasoning. Along the way, I'll continue to build open source applications, upload free resources to the rw.com library, and solve problems with software for employers. Learn more via the buttons {buttonDirText}.</p>
+        <p>{greeting} I'm Race Williams, a <span style="color: var(--pink); font-size: 1em; margin-left: -0.08em">{years}</span> year-old student and software engineer with interests in social computing, cybersecurity, and Russian. Along the way, I'll continue to build open source applications, upload free resources to the rw.com library, and solve problems with software for employers. Learn more via the buttons {buttonDirText}.</p>
     </div>
     <div id="navBtnBox">
         <a class="navBtn" href="/apps"><h2 style="transform: translateY(-0.05em);">apps</h2></a>

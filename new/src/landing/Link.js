@@ -24,7 +24,7 @@ const Link = ({where, text}) => {
 
   return (
     <>{where == 'toggleTheme'
-    ? <div style={styles.link} href={where}><h3 style={styles.text} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h3></a>
+    ? <div style={styles.link} href={where}><h3 style={styles.text} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h3></div>
     : <a style={styles.link} href={where}><h3 style={styles.text} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h3></a>}</>
   );
 }

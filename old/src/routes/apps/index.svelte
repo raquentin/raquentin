@@ -1,9 +1,8 @@
 <script>
     import ContentTop from "../../comps/ContentTop.svelte"
-
-import cardData from "./apps.json"
-import Card from "../../comps/Card.svelte"
-const cards = cardData.data
+    import cardData from "./apps.json"
+    import Card from "../../comps/Card.svelte"
+    const cards = cardData.data
 </script>
 
 <ContentTop>
