@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HoverVideoPlayer from 'react-hover-video-player';
 
 import TopCont from '../common/TopCont';
@@ -53,7 +53,7 @@ const Daily = () => {
     <div style={styles.cont}>
       {videos.map((video, i) => (
         <div style={styles.videoCont}>
-          {video.link == ""
+          {video.link === ""
           ? <div style={styles.noVideo}><h3 style={styles.comingSoon}>скоро будет</h3></div>
           : <HoverVideoPlayer muted={false} key={i} videoSrc={video.link}/>
           }

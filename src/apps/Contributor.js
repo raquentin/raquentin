@@ -18,7 +18,7 @@ const Contributor = ({contributor, i}) => {
   };
 
   return (
-    <a style={styles.link} key={i} href={contributor.html_url} target="_blank" rel="noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><p>{i+1}.) {contributor.login}</p></a>
+    <a style={styles.link} key={i} href={contributor.html_url} target="_blank" rel="noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><p>{i+1}.) {contributor.login} [{contributor.contributions} commits]</p></a>
   );
 }
 

@@ -7,15 +7,6 @@ import Contributor from '../Contributor'
 const Eatcode = () => {
   const [openIssuesCount, setOpenIssuesCount] = useState("x");
   const [contributors, setContributors] = useState([{login: "loading..."}]);
-
-  
-  useEffect(() => {
-    fetch(`https://api.github.com/repos/r4c3/portfolio`)
-    .then((response) => response.json())
-    .then((data) => {
-      setOpenIssuesCount(data.open_issues_count);
-    });
-   }, []);
   
   useEffect(() => {
     fetch(`https://api.github.com/repos/r4c3/portfolio/contributors`)

@@ -23,7 +23,7 @@ const ContactLink = ({where, text}) => {
   };
 
   return (
-    <a style={styles.link} href={where}><h2 style={styles.text} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h2></a>
+    <a style={styles.link} href={where} target="_blank" rel="noreferrer"><h2 style={styles.text} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h2></a>
   );
 }
 

@@ -64,8 +64,8 @@ const Eatcode = () => {
       <h4 style={styles.question}>what is eatcode?</h4>
       <p style={styles.response}>Eatcode is is a technical interview training website for software engineers. 
       I'm working on the webapp as Project Manager with a team of six other Georgia Tech CS students in 
-      association with GT Web Dev club. Thanks to its unique 3D food-themed UI, faster solution testing, 
-      and commitment to staying free, Eatcode surpasses its more popular competitors like Leetcode (🤮) 
+      association with GT Web Dev club. Eatcode's unique 3D food-themed UI, relatively fast solution testing, 
+      and $0 pricetag push it beyond its more popular competitors like Leetcode (🤮) 
       and HackerRank (🤢). Eatcode is not yet a live app, but you can track our development&nbsp;
       <PLink where="https://github.com/eatcode-gt/eatcodeweb" text="on Github" />.
       </p>
