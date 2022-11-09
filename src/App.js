@@ -15,9 +15,12 @@ import Contact from './contact/page';
 function App() {
   let styles = {
     app: {
+      // '--bg': '#242424', //background
+      // '--tx': '#FFFFFF', //text
+      // '--ac': '#8adb65', //accent
       '--bg': '#242424', //background
       '--tx': '#FFFFFF', //text
-      '--ac': '#8adb65', //accent
+      '--ac': '#56cf3e', //accent
       height: '100vh',
       width: '100vw',
       backgroundColor: 'var(--bg)',

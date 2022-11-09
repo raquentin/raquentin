@@ -58,8 +58,7 @@ const Eatcode = () => {
 
       <h4 style={styles.question}>can I contribute?</h4>
       <p style={styles.response}>Kind of? Anyone can fork this portfolio repo to use as their own, though any contributions made on any individual fork will not
-      influence racewilliams.com.</p>
-      
+      influence racewilliams.com. Create your own fork <PLink where="https://github.com/r4c3/portfolio/fork" text="on Github" />.</p>
       <div style={styles.bottom}>
         <div style={styles.bottomSide}>
           <h4 style={styles.question}>live demo</h4>
