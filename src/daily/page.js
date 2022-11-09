@@ -1,37 +1,65 @@
 import { useState, useEffect } from "react";
-import { Player } from 'video-react';
+import HoverVideoPlayer from 'react-hover-video-player';
 
 import TopCont from '../common/TopCont';
 
 const Daily = () => {
-  const [videos, setVideos] = useState([]);
-
-
-  useEffect(() => {
-    fetch('https://api.imgur.com/3/gallery.json', {
-      headers: {
-        'Authorization': 'Client-ID 3899eeb02cf3ac0'
-      }
-    })
-    .then((response) => console.log(response.json()));
-   }, []);
+  const [videos, setVideos] = useState([
+    {date: "11/09/22", link: "https://i.imgur.com/zDsF42Y.mp4"},
+    {date: "11/10/22", link: ""},
+    {date: "11/11/22", link: ""},
+    {date: "11/12/22", link: ""},
+    {date: "11/13/22", link: ""},
+    {date: "11/14/22", link: ""},
+    {date: "11/15/22", link: ""},
+    {date: "11/16/22", link: ""}
+  ]);
 
   const styles = {
-    video: {
-      backgroundImage: "url('https://external-preview.redd.it/7XlmFivxD_dHNR82G8M9PDdn6RfqZWohYOqDFQtXuwA.png?width=640&crop=smart&format=pjpg&auto=webp&s=456a3ef2c21b06f8ca0d1fe995341f8dfef9314a')",
-      height: '30em',
-      width: ''
+    cont: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(16em, 4fr))',
+      gap: '2em'
+    },
+    videoCont: {
+      width: '20em',
+      height: `${(16 / 9 * 20) + 2.5}em`,
+      padding: '0.3em',
+      backgroundColor: 'var(--ac)'
+    },
+    noVideo: {
+      width: '20em',
+      backgroundColor: 'var(--bg)',
+      height: `${(16 / 9 * 20) + 0.1}em`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    comingSoon: {
+      color: 'var(--ac)',
+      transform: 'translateY(-0.5em)'
+    },
+    text: {
+      color: 'black',
+      fontWeight: 'bold',
+      transform: 'translateY(0.2em)'
     }
   };
 
   return (
-    <TopCont title="ежедневный" children={<>
-      {/* {videos.map((video, i) => (
-        <video key={i}
-          src={video.data.url} >
-        </video>
-      ))} */}
-    </>} />
+    <TopCont title="ежедневный" children={
+    <div style={styles.cont}>
+      {videos.map((video, i) => (
+        <div style={styles.videoCont}>
+          {video.link == ""
+          ? <div style={styles.noVideo}><h3 style={styles.comingSoon}>скоро будет</h3></div>
+          : <HoverVideoPlayer key={i} videoSrc={video.link}/>
+          }
+          <p key={i} style={styles.text}>{video.date}</p>
+        </div>
+      ))}
+    </div>
+    } />
   );
 };
 
