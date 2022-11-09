@@ -18,7 +18,7 @@ const Daily = () => {
   const styles = {
     cont: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(16em, 4fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(22em, 4fr))',
       gap: '2em'
     },
     videoCont: {
@@ -53,7 +53,7 @@ const Daily = () => {
         <div style={styles.videoCont}>
           {video.link == ""
           ? <div style={styles.noVideo}><h3 style={styles.comingSoon}>скоро будет</h3></div>
-          : <HoverVideoPlayer key={i} videoSrc={video.link}/>
+          : <HoverVideoPlayer muted={false} key={i} videoSrc={video.link}/>
           }
           <p key={i} style={styles.text}>{video.date}</p>
         </div>
