@@ -2,16 +2,31 @@ import { useState, useEffect } from 'react';
 
 import TopCont from '../../common/TopCont';
 import PLink from '../../common/PLink'
+import Contributor from '../Contributor'
 
 const Eatcode = () => {
   const [openIssuesCount, setOpenIssuesCount] = useState("x");
+  const [contributors, setContributors] = useState([{login: "loading..."}]);
 
+  
   useEffect(() => {
     fetch(`https://api.github.com/repos/eatcode-gt/eatcodeweb`)
     .then((response) => response.json())
-    .then((data) => setOpenIssuesCount(data.open_issues_count));
+    .then((data) => {
+      setOpenIssuesCount(data.open_issues_count);
+    });
    }, []);
   
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/eatcode-gt/eatcodeweb/contributors`)
+    .then((response) => response.json())
+    .then((data) => {
+      setContributors(data);
+    });
+   }, []);
+   
+  console.log(contributors)
+
   const styles = {
     question: {
       color: 'var(--ac)',
@@ -28,16 +43,19 @@ const Eatcode = () => {
     bottom: {
       display: 'flex',
       gap: '3em',
-      width: '100%'
+      width: ''
+    },
+    bottomSide: {
+      flex: '50%',
+      display: 'flex',
+      flexDirection: 'column',
     },
     demo: {
-      flex: '50%',
-      backgroundSize: 'cover',
       backgroundImage: `url(/img/eatcode.gif)`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
-      minWidth: '100%',
-      minHeight: '100em'
+      height: '30em',
+      marginTop: '0.3em'
     }
   };
 
@@ -58,16 +76,17 @@ const Eatcode = () => {
       . If it's your first time contributing, consider searching for issues with the "good first issue" label.</p>
       
       <div style={styles.bottom}>
-        <div>
+        <div style={styles.bottomSide}>
           <h4 style={styles.question}>live demo</h4>
           <div style={styles.demo} alt="asd" />
         </div>
-        <div>
-          <h4 style={styles.question}>live demo</h4>
-          <div style={styles.demo} alt="asd" />
+        <div style={styles.bottomSide}>
+          <h4 style={styles.question}>top contributors</h4>
+          {contributors.slice(0,9).map((contributor, i) => (
+            <Contributor contributor={contributor} i={i}/>
+          ))}
         </div>
       </div>
-
     </>} />
   );
 };

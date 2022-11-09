@@ -13,6 +13,7 @@ const ViewSource = ({where, text}) => {
     text: {
       color: isHover ? 'var(--tx)' : 'black',
       transition: 'all 0.3s ease',
+      zIndex: '3'
     }
   };
 

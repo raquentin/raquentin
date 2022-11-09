@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import ViewSource from './ViewSource';
 
 const AppCard = ({text, img}) => {
   const [isHover, setIsHover] = useState(false);
@@ -48,7 +47,6 @@ const AppCard = ({text, img}) => {
       <div style={styles.bg} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} alt="image for lib item" />
       <div style={styles.bottomBar}>
         <h3 style={styles.text}>{text}</h3>
-        <ViewSource where={"https://github.com"} text={"view source"}/>
       </div>
     </Link>
   );

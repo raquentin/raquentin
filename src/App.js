@@ -1,7 +1,6 @@
 import { PageTransition } from '@steveeeie/react-page-transition';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
-
 import './common/fonts.css';
 
 import Landing from './landing/page';
