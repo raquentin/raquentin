@@ -57,7 +57,7 @@ const LibraryCard = ({text, img, directLink}) => {
         <div style={styles.bg} alt="image for lib item" />
         <p style={styles.text}>{text}</p>
       </Link>
-    : <a href={`${directLink}`} style={styles.cont} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    : <a href={`${directLink}`} target="_blank" rel="noreferrer" style={styles.cont} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div style={styles.external}><p style={styles.externalText}>this links to an external page</p></div>
         <div style={styles.bg} alt="image for lib item" />
         <p style={styles.text}>{text}</p>

@@ -1,4 +1,6 @@
-const CenterCont = ({children}) => {
+import TitleSplit from "./TitleSplit";
+
+const CenterCont = ({title, where, link, children}) => {
   const styles = {
     cont: {
       display: 'flex',
@@ -13,6 +15,10 @@ const CenterCont = ({children}) => {
 
   return (
     <div style={styles.cont}>
+      {title === 0
+      ? <></> //Landing page doesn't need TitleSplit
+      : <TitleSplit title={title} where={where} link={link}/>
+      }
       {children}
     </div>
   );

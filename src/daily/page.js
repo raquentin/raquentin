@@ -5,14 +5,16 @@ import TopCont from '../common/TopCont';
 
 const Daily = () => {
   const [videos, setVideos] = useState([
-    {date: "11/09/22", link: "https://i.imgur.com/zDsF42Y.mp4"},
+    {date: "11/08/22", link: "https://i.imgur.com/zDsF42Y.mp4"},
+    {date: "11/09/22", link: ""},
     {date: "11/10/22", link: ""},
     {date: "11/11/22", link: ""},
     {date: "11/12/22", link: ""},
     {date: "11/13/22", link: ""},
     {date: "11/14/22", link: ""},
     {date: "11/15/22", link: ""},
-    {date: "11/16/22", link: ""}
+    {date: "11/16/22", link: ""},
+    {date: "11/17/22", link: ""}
   ]);
 
   const styles = {
@@ -30,7 +32,7 @@ const Daily = () => {
     noVideo: {
       width: '20em',
       backgroundColor: 'var(--bg)',
-      height: `${(16 / 9 * 20) + 0.1}em`,
+      height: `${(16 / 9 * 20) + 0}em`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
@@ -47,7 +49,7 @@ const Daily = () => {
   };
 
   return (
-    <TopCont title="ежедневный" children={
+    <TopCont title="ежедневный" where="landing" link="/" children={
     <div style={styles.cont}>
       {videos.map((video, i) => (
         <div style={styles.videoCont}>

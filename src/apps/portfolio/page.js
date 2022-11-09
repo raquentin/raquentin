@@ -10,7 +10,7 @@ const Eatcode = () => {
 
   
   useEffect(() => {
-    fetch(`https://api.github.com/repos/eatcode-gt/eatcodeweb`)
+    fetch(`https://api.github.com/repos/r4c3/portfolio`)
     .then((response) => response.json())
     .then((data) => {
       setOpenIssuesCount(data.open_issues_count);
@@ -18,7 +18,7 @@ const Eatcode = () => {
    }, []);
   
   useEffect(() => {
-    fetch(`https://api.github.com/repos/eatcode-gt/eatcodeweb/contributors`)
+    fetch(`https://api.github.com/repos/r4c3/portfolio/contributors`)
     .then((response) => response.json())
     .then((data) => {
       setContributors(data);
@@ -51,7 +51,7 @@ const Eatcode = () => {
       flexDirection: 'column',
     },
     demo: {
-      backgroundImage: `url(/img/eatcode.gif)`,
+      backgroundImage: `url(/img/portfolio.gif)`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       height: '30em',
@@ -60,20 +60,14 @@ const Eatcode = () => {
   };
 
   return (
-    <TopCont title="eatcode" where="apps" link="/apps" children={<>
-      <h4 style={styles.question}>what is eatcode?</h4>
-      <p style={styles.response}>Eatcode is is a technical interview training website for software engineers. 
-      I'm working on the webapp as Project Manager with a team of six other Georgia Tech CS students in 
-      association with GT Web Dev club. Thanks to its unique 3D food-themed UI, faster solution testing, 
-      and commitment to staying free, Eatcode surpasses its more popular competitors like Leetcode (🤮) 
-      and HackerRank (🤢). Eatcode is not yet a live app, but you can track our development&nbsp;
-      <PLink where="https://github.com/eatcode-gt/eatcodeweb" text="on Github" />.
+    <TopCont title="portfolio" where="apps" link="/apps" children={<>
+      <h4 style={styles.question}>what is racewilliams.com?</h4>
+      <p style={styles.response}>The site you're on right now. It's a lot of things; it hosts my open source applications, library resources, daily ежедневный videos, resume, and more.
       </p>
 
       <h4 style={styles.question}>can I contribute?</h4>
-      <p style={styles.response}>Yes, eatcode currently has {openIssuesCount} open issue(s) awaiting an open-source contribution 
-      from someone like you. All issues are enumerated on the <PLink where="https://github.com/eatcode-gt/eatcodeweb/issues" text="issues page" />
-      . If it's your first time contributing, consider searching for issues with the "good first issue" label.</p>
+      <p style={styles.response}>Kind of? Anyone can fork this portfolio repo to use as their own, though any contributions made on any individual fork will not
+      influence racewilliams.com.</p>
       
       <div style={styles.bottom}>
         <div style={styles.bottomSide}>

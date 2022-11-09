@@ -2,23 +2,19 @@
     "data": [
         {
             "text": "eatcode",
-            "img": "eatcode.gif",
-            "directLink": "https://www.youtube.com/channel/UC-wgQWLwSrte9JhIQC02CQg"
+            "img": "eatcode.gif"
+        },
+        {
+            "text": "portfolio",
+            "img": "portfolio.gif"
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg",
-            "directLink": ""
+            "img": "coming soon.jpg"
         },
         {
             "text": "coming soon",
-            "img": "coming soon.jpg",
-            "directLink": ""
-        },
-        {
-            "text": "coming soon",
-            "img": "coming soon.jpg",
-            "directLink": ""
+            "img": "coming soon.jpg"
         }
     ]
 }

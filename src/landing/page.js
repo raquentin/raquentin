@@ -44,7 +44,7 @@ const Landing = () => {
   };
 
   return (
-    <CenterCont children={<>
+    <CenterCont title={0} children={<>
       <div style={styles.info}>
         <h1 style={styles.title}>racewilliams.com</h1>
         <p style={styles.p}>

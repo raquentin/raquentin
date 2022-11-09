@@ -1,6 +1,6 @@
 import TitleSplit from './TitleSplit'
 
-const TopCont = ({title, children}) => {
+const TopCont = ({title, where, link, children}) => {
   const styles = {
     cont: {
       display: 'flex',
@@ -14,7 +14,7 @@ const TopCont = ({title, children}) => {
 
   return (<>
     <div style={styles.cont}>
-      <TitleSplit title={title} />
+      <TitleSplit title={title} where={where} link={link} />
       {children}
     </div>
   </>);

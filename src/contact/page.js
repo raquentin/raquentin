@@ -1,6 +1,5 @@
 import CenterCont from '../common/CenterCont';
 import ContactLink from './ContactLink';
-import TitleSplit from '../common/TitleSplit'
 
 const Contact = () => {
   const styles = {
@@ -31,8 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <CenterCont children={<>
-      <TitleSplit title={"contact"}/>
+    <CenterCont title={"resume"} where={"landing"} link={"/"} children={<>
       <div style={styles.links}>
         <ContactLink style={styles.fakePageLink} where="mailto:rаce@racewilliams.com" text="rаce@racewilliams.com" />
         <ContactLink style={styles.fakePageLink} where="mailto:race@gatech.edu" text="race@gatech.edu" />

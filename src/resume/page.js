@@ -23,7 +23,7 @@ const Landing = () => {
   };
 
   return (
-    <TopCont title="resume" children={<>
+    <TopCont title="resume" where="landing" link="/" children={<>
         <h3 style={styles.sectionTitle}>Education</h3>
             <p style={styles.roleTitle}><span style={styles.span}>• Georgia Institute of Technology</span> &nbsp;(Aug 2022 - Dec 2025 expected)</p>
                 <p style={styles.roleDesc}>• BS/MS Candidate in Computer Science, BS Candidate in Applied Russian Language and Culture.</p>

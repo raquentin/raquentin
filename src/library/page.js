@@ -13,7 +13,7 @@ const Library = () => {
   };
 
   return (
-    <TopCont title="library" children={<>
+    <TopCont title="library" where="landing" link="/" children={<>
       <div style={styles.grid}>
         {Data.data.map((resource, i) => (
           <LibraryCard 

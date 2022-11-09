@@ -6,6 +6,7 @@ import './common/fonts.css';
 import Landing from './landing/page';
 import Apps from './apps/page';
   import Eatcode from './apps/eatcode/page'
+  import Portfolio from './apps/portfolio/page'
 import Library from './library/page';
 import Daily from './daily/page';
 import Resume from './resume/page';
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/' element={<Landing />} />
           <Route exact path='/apps' element={<Apps />} />
             <Route exact path='/apps/eatcode' element={<Eatcode />} />
+            <Route exact path='/apps/portfolio' element={<Portfolio />} />
           <Route exact path='/library' element={<Library />} />
           <Route exact path='/ежедневный' element={<Daily />} />
           <Route exact path='/resume' element={<Resume />} />
