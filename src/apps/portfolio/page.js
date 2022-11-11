@@ -5,7 +5,6 @@ import PLink from '../../common/PLink'
 import Contributor from '../Contributor'
 
 const Eatcode = () => {
-  const [openIssuesCount, setOpenIssuesCount] = useState("x");
   const [contributors, setContributors] = useState([{login: "loading..."}]);
   
   useEffect(() => {

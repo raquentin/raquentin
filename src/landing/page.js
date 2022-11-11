@@ -41,6 +41,9 @@ const Landing = () => {
       alignItems: 'end',
       gap: '0.8em'
     },
+    read: {
+      color: 'var(--ac)'
+    }
   };
 
   return (
@@ -54,7 +57,9 @@ const Landing = () => {
         </p>
 
         <br/>
-        <p style={styles.p}>msg: Site is in a transition period now as I transfer it from SvelteKit to React. Library page, apps page, ежедневный, and responsiveness should be fully reinstated by Dec 1.</p>
+        <p style={styles.p}><span style={styles.read}>Read:</span> I'm rewriting my site so it's going to be annoying to use for a bit. I've
+        scheduled the main issues to be resolved by Dec 1. I give you permission to ddos me and/or spam my email with botted messages of rage if the site still breaks after then. Nov 11: remake black 
+        ben carson sample kit and upload last few days of ежедневный. Nov 12: download resume pdf button, communist slow jams sample kit, start mobile responsiveness</p>
       </div>
       <div style={styles.links}>
         <PageLink where="/apps" text="apps" />
