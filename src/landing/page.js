@@ -58,8 +58,7 @@ const Landing = () => {
 
         <br/>
         <p style={styles.p}><span style={styles.read}>Read:</span> I'm rewriting my site so it's going to be annoying to use for a bit. I've
-        scheduled the main issues to be resolved by Dec 1. I give you permission to ddos me and/or spam my email with botted messages of rage if the site still breaks after then. Nov 11: remake black 
-        ben carson sample kit and upload last few days of ежедневный. Nov 12: download resume pdf button, communist slow jams sample kit, start mobile responsiveness</p>
+        scheduled the main issues to be resolved by Dec 1. I give you permission to ddos me and/or spam my email with botted messages of rage if the site still breaks after then.</p>
       </div>
       <div style={styles.links}>
         <PageLink where="/apps" text="apps" />

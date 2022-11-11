@@ -53,7 +53,7 @@ const LibraryCard = ({text, img, directLink}) => {
   return (
     <>
     {directLink === ''
-    ? <Link to={`/${text}`} style={styles.cont} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    ? <Link to={`/library/${text.replaceAll(" ", "_")}`} style={styles.cont} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div style={styles.bg} alt="image for lib item" />
         <p style={styles.text}>{text}</p>
       </Link>

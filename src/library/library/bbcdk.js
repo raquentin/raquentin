@@ -4,17 +4,17 @@ import TopCont from '../../common/TopCont';
 import PLink from '../../common/PLink'
 import Contributor from '../../common/Contributor'
 
-const Eatcode = () => {
-  const [contributors, setContributors] = useState([{login: "loading..."}]);
+const BBCDK = () => {
+    const [contributors, setContributors] = useState([{login: "loading..."}]);
   
-  useEffect(() => {
-    fetch(`https://api.github.com/repos/r4c3/portfolio/contributors`)
-    .then((response) => response.json())
-    .then((data) => {
-      setContributors(data);
-    });
-   }, []);
-  
+    useEffect(() => {
+      fetch(`https://api.github.com/repos/r4c3/drumkits/contributors`)
+      .then((response) => response.json())
+      .then((data) => {
+        setContributors(data);
+      });
+     }, []);
+
   const styles = {
     question: {
       color: 'var(--ac)',
@@ -39,7 +39,7 @@ const Eatcode = () => {
       flexDirection: 'column',
     },
     demo: {
-      backgroundImage: `url(/img/portfolio.gif)`,
+      backgroundImage: `url(/img/bbc.png)`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       height: '30em',
@@ -48,17 +48,16 @@ const Eatcode = () => {
   };
 
   return (
-    <TopCont title="portfolio" where="apps" link="/apps" children={<>
-      <h4 style={styles.question}>what is racewilliams.com?</h4>
-      <p style={styles.response}>The site you're on right now. It's a lot of things; it hosts my open source applications, library resources, daily ежедневный videos, resume, and more.
+    <TopCont title="bbc dk" where="library" link="/library" children={<>
+      <h4 style={styles.question}>black ben carson drum kit</h4>
+      <p style={styles.response}>Contains over 100 chops from JPEGMAFIA's Black Ben Carson. 
       </p>
 
       <h4 style={styles.question}>can I contribute?</h4>
-      <p style={styles.response}>Kind of? Anyone can fork this portfolio repo to use as their own, though any contributions made on any individual fork will not
-      influence racewilliams.com. Create your own fork <PLink where="https://github.com/r4c3/portfolio/fork" text="on Github" />.</p>
+      <p style={styles.response}>Yes. All racewilliams.com drumkits are open source. Add your own chops or edit existing ones <PLink where="https://github.com/r4c3/drumkits" text="on Github" />.</p>
       <div style={styles.bottom}>
         <div style={styles.bottomSide}>
-          <h4 style={styles.question}>live demo</h4>
+          <h4 style={styles.question}>drumkit cover</h4>
           <div style={styles.demo} alt="asd" />
         </div>
         <div style={styles.bottomSide}>
@@ -72,4 +71,4 @@ const Eatcode = () => {
   );
 };
 
-export default Eatcode;
+export default BBCDK;

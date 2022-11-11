@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import TopCont from '../../common/TopCont';
 import PLink from '../../common/PLink'
-import Contributor from '../Contributor'
+import Contributor from '../../common/Contributor'
 
 const Eatcode = () => {
   const [openIssuesCount, setOpenIssuesCount] = useState("x");

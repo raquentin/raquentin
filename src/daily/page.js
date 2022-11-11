@@ -6,7 +6,7 @@ import TopCont from '../common/TopCont';
 const Daily = () => {
   const [videos, setVideos] = useState([
     {date: "11/08/22", link: "https://i.imgur.com/zDsF42Y.mp4"},
-    {date: "11/09/22", link: ""},
+    {date: "11/09/22", link: "https://i.imgur.com/exMGrTl.mp4"},
     {date: "11/10/22", link: ""},
     {date: "11/11/22", link: ""},
     {date: "11/12/22", link: ""},
@@ -52,12 +52,12 @@ const Daily = () => {
     <TopCont title="ежедневный" where="landing" link="/" children={
     <div style={styles.cont}>
       {videos.map((video, i) => (
-        <div style={styles.videoCont}>
+        <div key={i} style={styles.videoCont}>
           {video.link === ""
           ? <div style={styles.noVideo}><h3 style={styles.comingSoon}>скоро будет</h3></div>
           : <HoverVideoPlayer muted={false} key={i} videoSrc={video.link}/>
           }
-          <p key={i} style={styles.text}>{video.date}</p>
+          <p key={`${i}p`} style={styles.text}>{video.date}</p>
         </div>
       ))}
     </div>

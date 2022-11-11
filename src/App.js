@@ -8,6 +8,8 @@ import Apps from './apps/page';
   import Eatcode from './apps/eatcode/page'
   import Portfolio from './apps/portfolio/page'
 import Library from './library/page';
+  import BBCDK from './library/library/bbcdk'
+  import CSJDK from './library/library/csjdk'
 import Daily from './daily/page';
 import Resume from './resume/page';
 import Contact from './contact/page';
@@ -40,6 +42,8 @@ function App() {
             <Route exact path='/apps/eatcode' element={<Eatcode />} />
             <Route exact path='/apps/portfolio' element={<Portfolio />} />
           <Route exact path='/library' element={<Library />} />
+            <Route exact path='/library/bbc_dk' element={<BBCDK />} />
+            <Route exact path='/library/csj_dk' element={<CSJDK />} />
           <Route exact path='/ежедневный' element={<Daily />} />
           <Route exact path='/resume' element={<Resume />} />
           <Route exact path='/contact' element={<Contact />} />
