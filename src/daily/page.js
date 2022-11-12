@@ -7,7 +7,7 @@ const Daily = () => {
   const [videos, setVideos] = useState([
     {date: "11/08/22", link: "https://i.imgur.com/zDsF42Y.mp4"},
     {date: "11/09/22", link: "https://i.imgur.com/exMGrTl.mp4"},
-    {date: "11/10/22", link: "https://i.imgur.com/0zHXWOr.mp4"},
+    {date: "11/10/22", link: "https://i.imgur.com/UGpQ8gx.mp4"},
     {date: "11/11/22", link: ""},
     {date: "11/12/22", link: ""},
     {date: "11/13/22", link: ""},
