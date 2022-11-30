@@ -1,13 +1,13 @@
 export default function Divider() {
-    const styles = {
-        divider: {
-            width: '0.25vw',
-            height: 'calc(100% - 14em)',
-            backgroundColor: 'var(--gr)'
-        }
+  const styles = {
+    divider: {
+      minWidth: '0.25vw',
+      height: '90%',
+      backgroundColor: 'var(--gr)'
     }
+  }
 
-    return (
-        <div style={styles.divider} />
-    )
+  return (
+    <div style={styles.divider} />
+  )
 }
