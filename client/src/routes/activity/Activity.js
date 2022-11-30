@@ -1,5 +1,4 @@
-
-export default function Posts() {
+export default function Contact() {
   // const styles = {
   // }
 

@@ -2,7 +2,7 @@ export default function Divider() {
   const styles = {
     divider: {
       minWidth: '0.25vw',
-      height: '90%',
+      height: '100%',
       backgroundColor: 'var(--gr)'
     }
   }

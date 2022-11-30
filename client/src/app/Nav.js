@@ -1,5 +1,5 @@
 import Divider from './Divider'
-import Link from "./Link"
+import LinkNav from "./LinkNav"
 
 export default function Nav() {
 
@@ -36,15 +36,15 @@ export default function Nav() {
       <div style={styles.notDivider}>
         <h1>Race Williams</h1>
         <div style={styles.links}>
-          <Link to="/" text="about" isActive={false} />
-          <Link to="/resume" text="resume" isActive={false} />
-          <Link to="/projects" text="projects" isActive={false} />
-          <Link to="/library" text="library" isActive={false} />
-          <Link to="/russian" text="russian" isActive={false} />
-          <Link to="/posts" text="posts" isActive={false} />
-          <Link to="/schedule" text="schedule" isActive={false} />
-          <Link to="/activity" text="activity" isActive={false} />
-          <Link to="/contact" text="contact" isActive={false} />
+          <LinkNav to="/" text="about" isActive={false} />
+          <LinkNav to="/resume" text="resume" isActive={false} />
+          <LinkNav to="/projects" text="projects" isActive={false} />
+          <LinkNav to="/library" text="library" isActive={false} />
+          <LinkNav to="/russian" text="russian" isActive={false} />
+          <LinkNav to="/posts" text="posts" isActive={false} />
+          <LinkNav to="/schedule" text="schedule" isActive={false} />
+          <LinkNav to="/activity" text="activity" isActive={false} />
+          <LinkNav to="/contact" text="contact" isActive={false} />
         </div>
       </div>
       <Divider />

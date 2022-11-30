@@ -20,7 +20,7 @@ export default function PageContainer({pathname, children}) {
       height: 'minContent',
       display: 'flex',
       flexDirection: 'column',
-      gap: '2em',
+      gap: '1em',
       width: '70vw',
     }
   }

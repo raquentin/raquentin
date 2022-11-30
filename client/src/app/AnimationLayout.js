@@ -20,7 +20,7 @@ export default function AnimationLayout() {
   
   const pageTransition = {
     type: "tween",
-    ease: "linear",
+    ease: "easeInOut",
     duration: 0.4
   };
 
