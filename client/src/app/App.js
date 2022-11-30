@@ -7,7 +7,6 @@ import Contact from '../routes/contact/Contact'
 import Library from '../routes/library/Library'
 import Posts from '../routes/posts/Posts'
 import Projects from '../routes/projects/Projects'
-import Resume from '../routes/resume/Resume'
 import Russian from '../routes/russian/Russian'
 import Schedule from '../routes/schedule/Schedule'
 import Activity from '../routes/activity/Activity'
@@ -37,7 +36,6 @@ const App = () => {
         <Routes>
           <Route element={<AnimationLayout />}>
             <Route path="/" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/library" element={<Library />} />
             <Route path="/russian" element={<Russian />} />

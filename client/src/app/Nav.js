@@ -37,7 +37,6 @@ export default function Nav() {
         <h1>Race Williams</h1>
         <div style={styles.links}>
           <LinkNav to="/" text="about" isActive={false} />
-          <LinkNav to="/resume" text="resume" isActive={false} />
           <LinkNav to="/projects" text="projects" isActive={false} />
           <LinkNav to="/library" text="library" isActive={false} />
           <LinkNav to="/russian" text="russian" isActive={false} />
