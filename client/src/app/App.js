@@ -34,7 +34,7 @@ const App = () => {
       alignItems: 'center',
       padding: '0 5vw',
       gap: '5em',
-      transition: '0.5s ease all'
+      transition: 'all 0.3s ease'
     }
   }
 
