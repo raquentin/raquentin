@@ -18,7 +18,7 @@ export default function About() {
   return (
     <p>I'm Race Williams, a {age} year-old engineer from Atlanta, GA. My landing page used 
     to be a wall of text lecturing on who I am and what this webapp is. 
-    As my site and I grew, I found that writing the AI chatbot below was easier than mantaining 
+    As my site and I grew, I found that writing the chatbot below was easier than mantaining 
     the monologue. See <InlinePageLink to="/contact" text=" /contact" /> to talk to me directly. Enjoy.</p>
   )
 }

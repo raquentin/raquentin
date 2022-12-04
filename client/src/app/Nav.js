@@ -1,5 +1,6 @@
 import Divider from './Divider'
 import LinkNav from "./LinkNav"
+import ThemeLink from './ThemeLink'
 
 export default function Nav() {
 
@@ -37,13 +38,14 @@ export default function Nav() {
         <h1>Race Williams</h1>
         <div style={styles.links}>
           <LinkNav to="/" text="about" isActive={false} />
-          <LinkNav to="/projects" text="projects" isActive={false} />
-          <LinkNav to="/library" text="library" isActive={false} />
-          <LinkNav to="/russian" text="russian" isActive={false} />
-          <LinkNav to="/posts" text="posts" isActive={false} />
-          <LinkNav to="/schedule" text="schedule" isActive={false} />
           <LinkNav to="/activity" text="activity" isActive={false} />
           <LinkNav to="/contact" text="contact" isActive={false} />
+          <LinkNav to="/library" text="library" isActive={false} />
+          <ThemeLink /> {/*text="lights"*/}
+          <LinkNav to="/posts" text="posts" isActive={false} />
+          <LinkNav to="/projects" text="projects" isActive={false} />
+          <LinkNav to="/russian" text="russian" isActive={false} />
+          <LinkNav to="/schedule" text="schedule" isActive={false} />
         </div>
       </div>
       <Divider />
