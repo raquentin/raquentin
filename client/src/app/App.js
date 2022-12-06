@@ -28,13 +28,17 @@ const App = () => {
       '--gr': isLightMode ? '#000000' : '#e2e2e2', //black : off white
       '--ac':  isLightMode ? '#0f537d' : '#44a6e3', //darkish blue : lightish blue
       height: '100vh',
-      width: 'calc(90vw)',
+      width: '90vw',
       backgroundColor: 'var(--bk)',
       display: 'inline-flex',
       alignItems: 'center',
       padding: '0 5vw',
       gap: '5em',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      '@media (max-width: 1494px)': {
+        gap: '2em',
+        width: '96vw',
+      }
     }
   }
 
