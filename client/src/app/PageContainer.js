@@ -22,6 +22,7 @@ export default function PageContainer({pathname, children}) {
       flexDirection: 'column',
       gap: '1em',
       width: '70vw',
+      transition: '0.3s ease all'
     }
   }
 

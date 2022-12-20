@@ -35,7 +35,7 @@ const App = () => {
       padding: '0 5vw',
       gap: '5em',
       transition: 'all 0.3s ease',
-      '@media (max-width: 1494px)': {
+      '@media (maxWidth: 1494px)': {
         gap: '2em',
         width: '96vw',
       }

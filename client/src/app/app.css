@@ -3,39 +3,39 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 12px;
+    font-size: initial; /* * See media queries towards EOF to see font-size at given window widths. */
 } body {
     margin: 0;
     background-color: var(--bl);
 }
 
 h1 {
-    font-family: "Ubuntu Mono";
+    font-family: "Source Sans Pro";
     font-size: 4.375em;
     font-weight: bold;
     margin: 0;
     color: var(--wt);
 } h2 {
-    font-family: "Ubuntu Mono";
+    font-family: "Source Sans Pro";
     font-size: 3.8em;
     font-weight: bold;
     margin: 0;
     color: var(--ac);
 } h3 {
-    font-family: "Ubuntu Mono";
+    font-family: "Source Sans Pro";
     letter-spacing: px;
     font-size: 2.4em;
     font-weight: normal;
     margin: 0;
     color: var(--wt);
 } h4 {
-    font-family: "Ubuntu Mono";
+    font-family: "Source Sans Pro";
     font-size: 2.1em;
     font-weight: bold;
     margin: 0;
     color: var(--wt);
 } h5 {
-    font-family: "Ubuntu Mono";
+    font-family: "Source Sans Pro";
     font-size: 1.8em;
     font-weight: bold;
     margin: 0;
@@ -63,6 +63,12 @@ ul {
     color: var(--bk);
 }
 
-@media all and (max-width: 1774px) {
+@media all and (max-width: 800px) {
+    html { font-size: 6px; }
+} @media all and (max-width: 1000px) {
+    html { font-size: 6px; }
+} @media all and (max-width: 2000px) {
     html { font-size: 10px; }
+} @media all and (max-width: 2600px) {
+    html { font-size: 12px; }
 }
