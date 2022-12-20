@@ -1,6 +1,6 @@
 import Divider from './Divider'
 import LinkNav from "./LinkNav"
-import ThemeLink from './ThemeLink'
+import NavIcon from './NavIcon'
 
 export default function Nav() {
 
@@ -18,9 +18,15 @@ export default function Nav() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: '6em',
+      gap: '3em',
       width: '11.75vw',
       flex: '1'
+    },
+    icons: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      width: '90%'
     },
     links: {
       display: 'flex',
@@ -36,12 +42,16 @@ export default function Nav() {
     <div style={styles.container}>
       <div style={styles.notDivider}>
         <h1>Race Williams</h1>
+        <div style={styles.icons}>
+          <NavIcon which="GitHub" />
+          <NavIcon which="LinkedIn" />
+          <NavIcon which="ToggleTheme" />
+        </div>
         <div style={styles.links}>
           <LinkNav to="/" text="about" isActive={false} />
           <LinkNav to="/activity" text="activity" isActive={false} />
           <LinkNav to="/contact" text="contact" isActive={false} />
           <LinkNav to="/library" text="library" isActive={false} />
-          <ThemeLink /> {/*text="lights"*/}
           <LinkNav to="/posts" text="posts" isActive={false} />
           <LinkNav to="/projects" text="projects" isActive={false} />
           <LinkNav to="/russian" text="russian" isActive={false} />
