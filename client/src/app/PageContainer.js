@@ -1,4 +1,4 @@
-
+import TextStyles from "../common/TextStyles"
 
 export default function PageContainer({pathname, children}) {
   
@@ -22,13 +22,12 @@ export default function PageContainer({pathname, children}) {
       flexDirection: 'column',
       gap: '1em',
       width: '70vw',
-      transition: '0.3s ease all'
     }
   }
 
   return (
     <div style={styles.container}>
-      <h2>{pathnameTitleMap[pathname]}</h2>
+      <h2 style={TextStyles.h2}>{pathnameTitleMap[pathname]}</h2>
       {children}
     </div>
   )

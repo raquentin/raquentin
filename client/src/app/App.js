@@ -23,10 +23,10 @@ const App = () => {
 
   let styles = {
     app: {
-      '--bk': isLightMode ? '#dadfe3' : '#10171c', //very light blue : very dark blue
+      '--bk': isLightMode ? '#dadfe3' : '#111111', //light bg : dark bg
       '--wt': isLightMode ? '#000000' : '#ffffff', //black : white
-      '--gr': isLightMode ? '#000000' : '#e2e2e2', //black : off white
-      '--ac':  isLightMode ? '#0f537d' : '#44a6e3', //darkish blue : lightish blue
+      '--gr': isLightMode ? '#111111' : '#e2e2e2', //off black : off white
+      '--ac':  isLightMode ? '#468260' : '#fa6e66', //light accent : dark accent
       height: '100vh',
       width: '90vw',
       backgroundColor: 'var(--bk)',

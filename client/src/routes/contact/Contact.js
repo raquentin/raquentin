@@ -1,8 +1,7 @@
-export default function Contact() {
-  // const styles = {
-  // }
+import TextStyles from "../../common/TextStyles"
 
+export default function Contact() {
   return (
-    <p>The proportion of web crawlers to real people on this page are somewhere between infinity to one and one to none.</p>
+    <p style={TextStyles.p}>Greetings to the four trillion web crawlers and seven real humans who have visited this page.</p>
   )
 }

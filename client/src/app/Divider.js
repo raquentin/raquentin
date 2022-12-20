@@ -3,7 +3,8 @@ export default function Divider() {
     divider: {
       minWidth: '0.25vw',
       height: '100%',
-      backgroundColor: 'var(--gr)'
+      backgroundColor: 'var(--gr)',
+      transition: '0.3s ease all'
     }
   }
 

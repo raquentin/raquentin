@@ -1,3 +1,4 @@
+import TextStyles from '../common/TextStyles'
 import Divider from './Divider'
 import LinkNav from "./LinkNav"
 import NavIcon from './NavIcon'
@@ -18,15 +19,16 @@ export default function Nav() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: '3em',
+      gap: '2em',
       width: '11.75vw',
       flex: '1'
     },
     icons: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between',
-      width: '90%'
+      gap: '1.2em',
+      width: '95%',
+      marginBottom: '0.3em'
     },
     links: {
       display: 'flex',
@@ -41,11 +43,11 @@ export default function Nav() {
   return (
     <div style={styles.container}>
       <div style={styles.notDivider}>
-        <h1>Race Williams</h1>
+        <h1 style={TextStyles.h1}>Race Williams</h1>
         <div style={styles.icons}>
           <NavIcon which="GitHub" />
-          <NavIcon which="LinkedIn" />
           <NavIcon which="ToggleTheme" />
+          <NavIcon which="LinkedIn" />
         </div>
         <div style={styles.links}>
           <LinkNav to="/" text="about" isActive={false} />
