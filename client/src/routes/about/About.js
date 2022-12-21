@@ -16,10 +16,11 @@ export default function About() {
     return () => clearInterval(interval);
   }, []);
 
-  return (
+  return (<>
+    <h2 style={{...TextStyles.h2, margin: '0 0 0.2em -0.02em'}}>hello</h2>
     <p style={TextStyles.p}>I'm Race Williams, a {age} year-old engineer from Atlanta, GA. My landing page used 
     to be a wall of text lecturing on who I am and what this webapp is. 
     As my site and I grew, I found writing the chatbot below to be easier than mantaining 
     the monologue. See <InlinePageLink to="/contact" text=" /contact" /> to talk to me directly. Одна любовь.</p>
-  )
+  </>)
 }

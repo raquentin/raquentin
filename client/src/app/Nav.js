@@ -19,16 +19,16 @@ export default function Nav() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: '2em',
+      gap: '2.6em',
       width: '11.75vw',
       flex: '1'
     },
     icons: {
       display: 'flex',
       alignItems: 'center',
-      gap: '1.2em',
-      width: '95%',
-      marginBottom: '0.3em'
+      justifyContent: 'space-between',
+      width: '100%',
+      marginBottom: '.4em'
     },
     links: {
       display: 'flex',
@@ -45,17 +45,19 @@ export default function Nav() {
       <div style={styles.notDivider}>
         <h1 style={TextStyles.h1}>Race Williams</h1>
         <div style={styles.icons}>
-          <NavIcon which="GitHub" />
           <NavIcon which="ToggleTheme" />
           <NavIcon which="LinkedIn" />
+          <NavIcon which="StackOverflow" />
+          <NavIcon which="Twitter" />
+          <NavIcon which="GitHub" />
         </div>
         <div style={styles.links}>
           <LinkNav to="/" text="about" isActive={false} />
           <LinkNav to="/activity" text="activity" isActive={false} />
+          <LinkNav to="/apps" text="apps" isActive={false} />
           <LinkNav to="/contact" text="contact" isActive={false} />
           <LinkNav to="/library" text="library" isActive={false} />
           <LinkNav to="/posts" text="posts" isActive={false} />
-          <LinkNav to="/projects" text="projects" isActive={false} />
           <LinkNav to="/russian" text="russian" isActive={false} />
           <LinkNav to="/schedule" text="schedule" isActive={false} />
         </div>

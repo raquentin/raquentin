@@ -10,7 +10,7 @@ import Activity from '../routes/activity/Activity'
 import Contact from '../routes/contact/Contact'
 import Library from '../routes/library/Library'
 import Posts from '../routes/posts/Posts'
-import Projects from '../routes/projects/Projects'
+import Apps from '../routes/apps/Apps'
 import Russian from '../routes/russian/Russian'
 import Schedule from '../routes/schedule/Schedule'
 
@@ -53,7 +53,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/library" element={<Library />} />
             <Route path="/posts" element={<Posts />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/apps" element={<Apps />} />
             <Route path="/russian" element={<Russian />} />
             <Route path="/schedule" element={<Schedule />} />
           </Route>

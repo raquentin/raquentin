@@ -1,8 +1,11 @@
-export default function Contact() {
-  // const styles = {
-  // }
+import { useState } from 'react';
+import axios from 'axios';
 
-  return (
-    <p>asf</p>
-  )
+import Grid from  "./Grid";
+import TextStyles from "../../common/TextStyles"
+
+export default function Activity() {
+  return (<>
+    <Grid/>
+  </>)
 }
