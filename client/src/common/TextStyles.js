@@ -1,6 +1,6 @@
 const TextStyles = {
 	h1: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "4.375em",
     fontWeight: "bold",
     margin: 0,
@@ -8,7 +8,7 @@ const TextStyles = {
 		color: 'var(--wt)'
 	},
   h2: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "3.8em",
     fontWeight: "bold",
     margin: 0,
@@ -16,7 +16,7 @@ const TextStyles = {
 		color: 'var(--ac)'
 		},
   h3: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "2.4em",
     fontWeight: "normal",
     margin: 0,
@@ -24,7 +24,7 @@ const TextStyles = {
 		color: 'var(--wt)'
 	},
   h4: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "2.1em",
     fontWeight: "bold",
     margin: 0,
@@ -32,7 +32,7 @@ const TextStyles = {
 		color: 'var(--wt)'
 	},
   h5: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "1.8em",
     fontWeight: "bold",
     margin: 0,
@@ -40,7 +40,7 @@ const TextStyles = {
 		color: 'var(--wt)'
 	},
   p: {
-    fontFamily: "Ubuntu",
+    fontFamily: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial',
     fontSize: "1.8em",
     fontWeight: "normal",
     margin: 0,

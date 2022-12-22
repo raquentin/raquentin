@@ -1,4 +1,3 @@
-import { m } from 'framer-motion';
 import { useState } from 'react';
 
 export default function Tweet({text, date, link}) {
@@ -22,7 +21,7 @@ export default function Tweet({text, date, link}) {
 	const styles = {
 		container: {
 			backgroundColor: twitterColors.black,
-			border: hover ? `0.15em solid ${twitterColors.blue}`: `0.15em solid ${twitterColors.dark}`,
+			border: hover ? '0.15em solid var(--ac)': `0.15em solid ${twitterColors.dark}`,
 			transition: '0.3s ease all',
 			gap: '1.2em',
 			padding: '1.4em 1em',

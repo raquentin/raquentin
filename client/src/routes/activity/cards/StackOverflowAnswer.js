@@ -33,7 +33,7 @@ export default function StackOverflowAnswer({title, tags, timeAgo, link}) {
 			height: 'min-content',
 			padding: '1em',
 			backgroundColor: stackOverflowColors.bg,
-			border: hover ? `0.1em solid ${stackOverflowColors.linkBlue}`: `0.1em solid ${stackOverflowColors.border}`,
+			border: hover ? '0.1em solid var(--ac)': `0.1em solid ${stackOverflowColors.border}`,
 			transition: '0.3s ease all'
 		},
 		title: {

@@ -18,8 +18,13 @@ export default function InlineDownloadLink({fileLink, text}) {
       fontSize: 'inherit'
     }
   }
-
-  return (
-    <a download href={fileLink} style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</a>
-  )
+  if (fileLink.charAt(0) === 'm') { //* it references a mailto
+    return (
+      <a href={fileLink} style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</a>
+    )
+  } else {
+    return (
+      <a download href={fileLink} style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</a>
+    )
+  }
 }

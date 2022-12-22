@@ -34,11 +34,7 @@ const App = () => {
       alignItems: 'center',
       padding: '0 5vw',
       gap: '5em',
-      transition: 'all 0.3s ease',
-      '@media (maxWidth: 1494px)': {
-        gap: '2em',
-        width: '96vw',
-      }
+      transition: 'all 0.3s ease'
     }
   }
 

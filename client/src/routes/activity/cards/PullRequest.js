@@ -10,7 +10,7 @@ export default function PullRequest({repo, title, link}) {
     setHover(false);
   }
 	
-	const shortTitle = (input) => input.length > 5 ? `${input.substring(0, 29)}...` : input;
+	const shortTitle = (input) => input.length > 18 ? `${input.substring(0, 18)}...` : input;
 
 	const githubColors = {
 		pink: "#ff7b72",
@@ -26,11 +26,11 @@ export default function PullRequest({repo, title, link}) {
 			display: 'flex',
 			alignItems: 'center',
 			gap: '0.3em',
-			height: '5.5em',
+			minHeight: '5.5em',
 			padding: '0em 0.7em',
 			borderRadius: '0.5em',
 			backgroundColor: githubColors.dark,
-			border: hover ? `0.2em solid ${githubColors.blue}`: `0.2em solid ${githubColors.light}`,
+			border: hover ? '0.2em solid var(--ac)': `0.2em solid ${githubColors.light}`,
 			transition: '0.3s ease all'
 		},
 		svg: {

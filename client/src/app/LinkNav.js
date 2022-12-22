@@ -17,7 +17,7 @@ export default function LinkNav({to, text}) { //not to be confused with NavLink
     return ({
       cursor: 'pointer',
       color: isActive ? 'var(--ac)' : 'var(--wt)',
-      borderLeft: isActive ? (hover ? '0.8em solid var(--wt)' : '0em solid transparent') : (hover ? '0.8em solid var(--ac)' : '0em solid transparent'),
+      borderLeft: isActive ? (hover ? '0.8em solid var(--bk)' : '0em solid transparent') : (hover ? '0.8em solid var(--ac)' : '0em solid transparent'),
       paddingLeft: isActive ? (hover ? '0.48em' : '0em') : (hover ? '0.48em' : '0em'),
       width: 'min-content',
       transition: 'all 0.3s ease'

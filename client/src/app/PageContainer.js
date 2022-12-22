@@ -3,8 +3,8 @@ export default function PageContainer({pathname, children}) {
     container: {
       height: 'minContent',
       maxHeight: '80vh',
-      overflowY: 'scroll',
-      width: '70vw'
+      overflow: 'hidden',
+      maxWidth: '70vw'
     }
   }
 

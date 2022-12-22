@@ -20,7 +20,14 @@ export default function InlinePageLink({to, text}) {
     }
   }
 
-  return (
-    <Link to={to} style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</Link>
-  )
+  if (to.charAt(0) === '/') { //* it references a racewilliams.com route
+    return (
+      <Link to={to} style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</Link>
+    )
+  } else { //* it references an external link
+    return (
+      <a href={to} target="_blank" rel="noreferrer" style={styles.link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</a>
+    )
+  }
+
 }
