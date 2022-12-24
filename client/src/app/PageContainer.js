@@ -3,6 +3,10 @@ export default function PageContainer({pathname, children}) {
     container: {
       height: 'minContent',
       maxHeight: '80vh',
+      height: '70vw',
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
       overflow: 'hidden',
       maxWidth: '70vw'
     }
