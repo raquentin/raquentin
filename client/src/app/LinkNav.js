@@ -32,6 +32,6 @@ export default function LinkNav({to, text}) { //not to be confused with NavLink
   }
 
   return ( //https://reactrouter.com/en/main/components/nav-link
-    <NavLink to={to} style={({isActive}) => returnStyles(isActive)}><h3 style={{...TextStyles.h3, ...styles.inherit}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h3></NavLink>
+    <NavLink end to={to} style={({isActive}) => returnStyles(isActive)}><h3 style={{...TextStyles.h3, ...styles.inherit}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{text}</h3></NavLink>
   )
 }

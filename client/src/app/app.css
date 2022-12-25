@@ -17,11 +17,11 @@ ul {
 }
 
 ::selection {
-    background: var(--ac);
-    color: var(--bk);
+    background: var(--wt);
+    /* color: var(--ac); */
 } ::-moz-selection {
-    background: var(--ac);
-    color: var(--bk);
+    background: var(--wt);
+    /* color: var(--ac); */
 }
 
 @media all and (max-width: 800px) {
