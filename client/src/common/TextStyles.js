@@ -45,7 +45,7 @@ const TextStyles = {
     fontWeight: "normal",
     margin: 0,
 		transition: '0.3s ease all',
-		color: 'var(--wt)'
+		color: 'inherit'
 	}
 }
 
