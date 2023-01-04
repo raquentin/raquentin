@@ -8,33 +8,6 @@ import StackOverflowAnswer from './cards/StackOverflowAnswer';
 import Tweet from './cards/Tweet';
 
 export default function Grid() {
-  // axios.get('https://api.stackexchange.com/2.3/users/20668816/answers?order=desc&sort=creation&site=stackoverflow&filter=!.f9fwfe3Gt00-e)jxd2e')
-  // .then(function (response) {
-  //   console.log("stack overflow: ", response.data.items);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-
-  // axios.get('https://api.github.com/users/r4c3/events/public')
-  // .then(function (response) {
-  //   console.log("github:", response.data);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
-
-  // axios.get('https://api.twitter.com/2/users/1595190378122059777/tweets?tweet.fields=attachments', {
-  //   headers: {
-  //     Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAAKKPkgEAAAAAkcCTaRYt9emYSc4EKVU%2FqAcqrck%3DABzHhwdjga3AUd5zgWhIbis0GfVHpVR6bmgpJKdYxiWoVivJPh`
-  //   }
-  // })
-  // .then(function (response) {
-  //   console.log("twitter:", response.data.data);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-	// });
 
 	const styles = {
 		text: {
