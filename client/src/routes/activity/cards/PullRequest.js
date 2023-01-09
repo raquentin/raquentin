@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function PullRequest({repo, title, link}) {
+export default function PullRequest({repo, title, link, createdAt}) {
 	const [hover, setHover] = useState(false);
 
   const handleMouseEnter = () => {
@@ -10,7 +10,11 @@ export default function PullRequest({repo, title, link}) {
     setHover(false);
   }
 	
-	const shortTitle = (input) => input.length > 18 ? `${input.substring(0, 18)}...` : input;
+  function timeSince(date) {
+    return Math.floor((new Date() - new Date(date)) / (1000 * 60 * 60 * 24));
+  }
+
+	const shortTitle = (input) => input.length > 19 ? `${input.substring(0, 16)}...` : input;
 
 	const githubColors = {
 		pink: "#ff7b72",
@@ -76,10 +80,10 @@ export default function PullRequest({repo, title, link}) {
 			</svg>
 			<div style={styles.right}>
 				<div style={styles.topRight}>
-					<p style={styles.repo}>{repo}</p>
+					<p style={styles.repo}>{shortTitle(repo)}</p>
 					<p style={styles.title}>{shortTitle(title)}</p>
 				</div>
-				<p style={styles.created}>#14 opened 2 weeks ago by r4c3</p>
+				<p style={styles.created}>{timeSince(createdAt)} days ago by r4c3</p>
 			</div>
 		</a>
 	)

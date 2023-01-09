@@ -14,7 +14,6 @@ export default function Eatcode() {
       url: "https://api.github.com/repos/eatcode-gt/eatcodeweb/contributors",
       method: "GET"
     }).then((res) => {
-      console.log(res.data)
       setTopContributors(res.data)
     }).catch((err) => {
       console.error(err)
@@ -63,14 +62,14 @@ export default function Eatcode() {
         <h4 style={TextStyles.h4}>A food-themed technical interview training website for software engineers.</h4>
       </div>
       <div style={styles.bottom}>
-        <video style={styles.vid} controls autoPlay loop>
+        <video style={styles.vid} autoPlay controls loop>
           <source src={demo} type="video/mp4" />
         </video>
         <div style={styles.topCommits}>
           <h4 style={{...TextStyles.h4, marginBottom: '0.3em'}}>Top Contributors:</h4>
           {topContributors.map((contributor, i) => {
             return (
-              <ContributorLink i={i} name={contributor.login} commits={contributor.contributions} />
+              <ContributorLink key={i} i={i} name={contributor.login} commits={contributor.contributions} />
             )
           })}
         </div>

@@ -73,16 +73,16 @@ export default function Tweet({text, date, link}) {
 	}
 
 	return (
-		<a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={styles.container} href={link} target="_blank" rel="noreferrer">
+		<a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={styles.container} href={"#"} target="_blank" rel="noreferrer">
 			<div style={styles.top}>
-				<img style={styles.img} src="https://pbs.twimg.com/profile_images/1605380577225490433/kVUkKCTk_400x400.jpg" />
+				<img style={styles.img} src="https://pbs.twimg.com/profile_images/1606723955234160643/65oBhDt7_400x400.jpg" />
 				<div style={styles.topTexts}>
 					<p style={styles.name}>Race</p>
 					<p style={styles.handle}>@racewilliamscom</p>
 				</div>
 			</div>
 			<p style={styles.text}>{text}</p>
-			<p style={styles.date}>{date}</p>
+			{/* <p style={styles.date}>{date}</p> */}
 		</a>
 	)
 }
