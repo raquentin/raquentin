@@ -20,10 +20,12 @@ export default function Grid() {
         'Content-Type': 'application/json'
       },
     }).then((response) => {
-      console.log(response)
-      setGithubItems(response.data[1])
-      setStackOverflowItems(response.data[0])
-      setTwitterItems(response.data[2])
+      if (response.data != []) {
+        setGithubItems(response.data[1])
+        setStackOverflowItems(response.data[0])
+        setTwitterItems(response.data[3])
+      }
+      console.log(response.data)
     })
   }, [])
 
@@ -59,22 +61,26 @@ export default function Grid() {
 		</div>
 		<div style={styles.feed}>
 			<div style={styles.column}>
-        {githubItems.map((item, i) => {
+        {githubItems && 
+        githubItems.map((item, i) => {
           console.log(item)
           return (
-            <PullRequest key={i} repo={item.repo} title={item.commitMessage} link={item.commitUrl} createdAt={item.createdAt}/>
+            <PullRequest key={i} repo={item.repo} title={item.commitMessage} createdAt={item.createdAt}/>
           )
         })}
 			</div>
 			<div style={styles.column}>
-        {stackOverflowItems.map((item, i) => {
+        {stackOverflowItems && 
+        stackOverflowItems.map((item, i) => {
+          console.log(item)
           return (
-            <StackOverflowAnswer key={i} title={item.title} link={item.share_link} tags={["adding", "this", "soon"]} timeAgo={"some time"}/>
+            <StackOverflowAnswer key={i} title={item.title} link={item.share_link} tags={["adding", "this", "soon"]} timeAgo={"some time"} rep={item.reputation}/>
           )
         })}
 			</div>
 			<div style={styles.column}>
-        {twitterItems.map((item, i) => {
+        {twitterItems && 
+        twitterItems.map((item, i) => {
           return (
             <Tweet key={i} text={item.text}/>
           )

@@ -10,7 +10,7 @@ export default function StackOverflowAnswer({title, tags, timeAgo, link}) {
     setHover(false);
   }
 	
-	const shortTitle = (input) => input.length > 5 ? `${input.substring(0, 29)}...` : input;
+	const shortTitle = (input) => input.length > 29 ? `${input.substring(0, 26)}...` : input;
 
 	const karma = 4234
 

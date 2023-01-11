@@ -8,10 +8,10 @@ dotenv.config() //load environment vars
 const app = express();
 app.use(express.json()) //Content-Type specficic middleware
 app.use(cors()) //cors middleware
-const port = process.env.PORT;
+
+const port = process.env.PORT
 
 let activityArray = []
-
 app.get('/api/activity', (req, res) => {
   res.send(activityArray)
 })
@@ -28,19 +28,18 @@ app.get('/api/posts/:id', (req, res) => {
   //save
 })
 
-app.get('/api/russian', (req, res) => {
-  //fetch overflow, twitter, github every 10 minutes
-  //shuffle
-  //save
+app.get('/api/chat', (req, res) => {
+  //run request through chatbot
+  //return res
 })
 
 //0 */9 * * *
 cron.schedule('* * * * *', () => { //* runs every minute
-  activityArray = []
+  activityArray = [[], [], []]
 
-  axios.get('https://api.stackexchange.com/2.3/users/20668816/answers?order=desc&sort=creation&site=stackoverflow&filter=!.f9fwfe3Gt00-e)jxd2e')
+  axios.get('https://api.stackexchange.com/2.3/users/20668816/answers?order=desc&sort=activity&site=stackoverflow&filter=!Fc6b7wC(edaHKUCJsGdLr*ztqT')
   .then(function (response) {
-    activityArray.push(response.data.items)
+    activityArray[0] = (response.data.items)
   })
   .catch(function (error) {
     console.log(error);
@@ -62,7 +61,7 @@ cron.schedule('* * * * *', () => { //* runs every minute
       })
     });
 
-    activityArray.push(commitsArray.slice(0, 12))
+    activityArray[1] = (commitsArray.slice(0, 12))
   })
   .catch(function (error) {
     console.log(error);
@@ -70,7 +69,7 @@ cron.schedule('* * * * *', () => { //* runs every minute
 
   axios.get('https://api.twitter.com/2/users/1595190378122059777/tweets', {
     headers: {
-      Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAAKKPkgEAAAAAkcCTaRYt9emYSc4EKVU%2FqAcqrck%3DABzHhwdjga3AUd5zgWhIbis0GfVHpVR6bmgpJKdYxiWoVivJPh`
+      Authorization: process.env.TWITTER_TOKEN
     }
   })
   .then(function (response) {
@@ -79,7 +78,7 @@ cron.schedule('* * * * *', () => { //* runs every minute
       newTweet[key] = tweet[key]
       return newTweet
     }, {}))
-    activityArray.push(cleanedTweets)
+    activityArray[2] = (activityArray.push(cleanedTweets))
   })
   .catch(function (error) {
     console.log(error);
