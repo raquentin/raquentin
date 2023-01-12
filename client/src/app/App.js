@@ -8,7 +8,7 @@ import Nav from './Nav'
 import About from '../routes/about/About'
 import Activity from '../routes/activity/Activity'
 import Contact from '../routes/contact/Contact'
-import Posts from '../routes/posts/Posts'
+import Articles from '../routes/articles/Articles'
 import Apps from '../routes/apps/Apps'
 import AppsRouter from '../routes/apps/AppsRouter'
 import Russian from '../routes/russian/Russian'
@@ -47,10 +47,10 @@ const App = () => {
             <Route path="/" element={<About />} />
             <Route path="/activity" element={<Activity />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/posts" element={<Posts />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/apps" element={<Apps />} />
             <Route path="/apps/:id" element={<AppsRouter />} />
-            <Route path="/russian" element={<Russian />} />
+            {/* <Route path="/russian" element={<Russian />} /> */}
           </Route>
         </Routes>
       </main>
