@@ -89,7 +89,7 @@ export default function StackOverflowAnswer({title, tags, timeAgo, link}) {
      		);})}
 			</div>
 			<div style={styles.bottomRight}>
-				<img style={styles.img} src="https://lh3.googleusercontent.com/a/ALm5wu0gK5bS-psVai5_gyef6tpQzX1z8TLhsA9G1eL6=k-s328" />
+				<img style={styles.img} src="https://pbs.twimg.com/profile_images/1613587840155389958/1FegykbB_400x400.jpg" />
 				<p style={styles.finalText}><span style={{color: stackOverflowColors.linkBlue}}>r4c3</span>&nbsp;<span style={{color: stackOverflowColors.white, fontWeight: 'bold'}}>{karma}</span>&nbsp;answered {timeAgo} ago</p>
 			</div>
 		</a>

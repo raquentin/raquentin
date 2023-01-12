@@ -75,7 +75,7 @@ export default function Tweet({text, date, link}) {
 	return (
 		<a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={styles.container} href="https://twitter.com/racewilliamscom" target="_blank" rel="noreferrer">
 			<div style={styles.top}>
-				<img style={styles.img} src="https://pbs.twimg.com/profile_images/1606723955234160643/65oBhDt7_400x400.jpg" />
+				<img style={styles.img} src="https://pbs.twimg.com/profile_images/1613587840155389958/1FegykbB_400x400.jpg" />
 				<div style={styles.topTexts}>
 					<p style={styles.name}>Race</p>
 					<p style={styles.handle}>@racewilliamscom</p>

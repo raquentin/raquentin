@@ -33,7 +33,8 @@ app.get('/api/chat', (req, res) => {
   //return res
 })
 
-//0 */9 * * *
+//use '0 */9 * * *' for every 6 hours
+//use '* * * * *' every minute
 cron.schedule('* * * * *', () => { //* runs every minute
   activityArray = [[], [], []]
 
