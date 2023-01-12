@@ -55,9 +55,9 @@ export default function Nav() {
           <LinkNav to="/" text="about" isActive={false} />
           <LinkNav to="/activity" text="activity" isActive={false} />
           <LinkNav to="/apps" text="apps" isActive={false} />
+          <LinkNav to="/articles" text="articles" isActive={false} />
           <LinkNav to="/contact" text="contact" isActive={false} />
-          <LinkNav to="/posts" text="posts" isActive={false} />
-          <LinkNav to="/russian" text="russian" isActive={false} />
+          <LinkNav to="/russian" text="русский" isActive={false} />
         </div>
       </div>
       <Divider />

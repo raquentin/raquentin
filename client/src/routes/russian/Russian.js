@@ -1,8 +1,13 @@
 export default function Contact() {
-  // const styles = {
-  // }
+  const styles = {
+    grid: {
+      backgroundColor: 'white'
+    }
+  }
 
   return (
-    <p>asf</p>
+    <div style={styles.grid}>
+      
+    </div>
   )
 }
