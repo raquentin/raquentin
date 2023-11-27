@@ -14,6 +14,7 @@
         padding: 0;
         width: 100vw;
         height: 100vh;
+        max-height: 100%;
         background-color: #0D0D0D;
         color: white;
         font-family: 'Inter', sans-serif;
