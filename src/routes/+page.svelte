@@ -1,4 +1,5 @@
 <script>
+    const yearsInPi = ((new Date() - new Date('2003-10-30')) / (1000 * 60 * 60 * 24 * 365.25) / Math.PI).toFixed(2);
 </script>
 
 
@@ -6,7 +7,7 @@
     <div class="transition" id="madvillainy-square" />
     <h1 class="bottom-margin" id="name-text">Race Williams</h1>
     <div id="text-container">
-        <p class="body-text">I’m a 6.39π year-old software engineer from the US.</p>
+        <p class="body-text">I’m a {yearsInPi}π year-old software engineer from the US.</p>
         <p class="body-text">Current work:</p>
             <p class="body-text">&nbsp;&nbsp;• SWE @ Blonde, an MMS-based social media network.</p>
             <p class="body-text">&nbsp;&nbsp;• CS @ Georgia Tech, studying HCI and audio programming.</p>
