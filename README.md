@@ -1,7 +1,7 @@
 ## Race Williams
 
-SWE @ Blonde, CS @ Georgia Tech.
-
-I like poker, audio, open-source, and algorithms.
+SWE @ Blonde, CS @ Georgia Tech.\
+I like poker, audio, open-source, and algorithms.\
+I maintain [Skru](https://github.com/skrusenti/skru), [p0p](https://github.com/p0p-vst3), and [rustexify](https://github.com/r4c3/rustexify). Vim, btw.
 
 https://racewilliams.com | race@racewilliams.com | https://linked.in/r4c3
