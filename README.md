@@ -2,7 +2,6 @@
 
 SWE @ Blonde, CS @ Georgia Tech.\
 I like poker, the web, comp audio, open-source, and algorithms.\
-I maintain [Skru](https://github.com/skrusenti/skru), [p0p-vst3](https://github.com/p0p-vst3), and [Eatcode](https://github.com/eatcoders/eatcode).\
-Vim, btw.
+I maintain [Skru](https://github.com/skrusenti/skru), [p0p-vst3](https://github.com/p0p-vst3), and [Eatcode](https://github.com/eatcoders/eatcode). Vim, btw.
 
 https://racewilliams.com | race@racewilliams.com | https://linked.in/r4c3
