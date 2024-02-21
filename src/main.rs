@@ -6,6 +6,8 @@ use tempfile::tempdir;
 mod utils;
 
 fn main() {
+    println!("entitled-exe v0.3.0");
+    
     let github_repo: String = Input::with_theme(&ColorfulTheme::default())
         .with_prompt("Enter the GitHub repository (<user/repo>)")
         .interact_text()
@@ -29,6 +31,13 @@ fn main() {
         .interact_text()
         .unwrap();
     
+    let output_directory: PathBuf = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter the output directory")
+        .default("builds".to_string())
+        .interact_text()
+        .map(PathBuf::from)
+        .unwrap();
+    
     let available_targets = vec![
         "x86_64-pc-windows-gnu",
         "x86_64-unknown-linux-gnu",
@@ -45,7 +54,6 @@ fn main() {
         return;
     }
 
-    let output_directory = PathBuf::from("builds");
     fs::create_dir_all(&output_directory).expect("Failed to create output directory");
 
     for &selection in &selections {
