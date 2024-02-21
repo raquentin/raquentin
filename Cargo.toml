@@ -2,7 +2,7 @@
 name = "entitled-exe"
 version = "0.2.0"
 authors = ["Race Williams <race@racewilliams.com"]
-description = "Satisfy \"GIMME .EXE\" script kiddies with an executable linking to your GitHub repo." 
+description = "Script kiddies whining about no compiled binaries? Troll them with an exe that opens GitHub."
 license = "MIT"
 repository = "https://github.com/r4c3/entitled-exe"
 edition = "2021"
