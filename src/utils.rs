@@ -14,13 +14,16 @@ pub fn init_cargo_project(project_path: &Path, repo_name: &str) {
         .expect("Failed to create temporary Cargo project");
 }
 
-pub fn write_main_rs(project_path: &Path, github_url: &str) {
+pub fn write_main_rs(project_path: &Path, github_url: &str, sleep_duration: u64) {
     let source_code = format!(
-        r#"use webbrowser;
+        r#"use std::{{thread, time::Duration}};
+        use webbrowser;
+        
         fn main() {{
+            thread::sleep(Duration::from_millis({}));
             webbrowser::open("{}").unwrap();
         }}"#,
-        github_url
+        sleep_duration, github_url
     );
 
     let src_path = project_path.join("src");
@@ -68,7 +71,7 @@ pub fn create_zip_archive(archive_path: &str, files: Vec<(&str, &Path)>) -> zip:
     let mut zip = ZipWriter::new(file);
 
     let options = FileOptions::default()
-        .compression_method(zip::CompressionMethod::Stored) // Change compression method if needed
+        .compression_method(zip::CompressionMethod::Stored)
         .unix_permissions(0o755);
 
     for (file_name, path) in files {
@@ -85,6 +88,7 @@ pub fn package_executable(
     project_path: &Path,
     repo_name: &str,
     target: &str,
+    version: &str,
     output_directory: &PathBuf,
 ) -> Result<(), String> {
     let executable_name = if target.contains("windows") {
@@ -102,12 +106,11 @@ pub fn package_executable(
         return Err(format!("Expected executable does not exist: {:?}", executable_path));
     }
 
-    let version = "1.0.0"; // Consider making this a parameter if it changes
     let archive_name = format!(
         "{}-{}-{}.zip",
         repo_name,
         version,
-        target.replace("x86_64", "64bit").replace("i686", "32bit")
+        target,
     );
     let archive_path = output_directory.join(&archive_name);
 

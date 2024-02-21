@@ -17,6 +17,18 @@ fn main() {
     let repo_name = repo_parts.last().unwrap_or(&"default_repo_name");
     let repo_name = repo_name.replace("/", "-");
     
+    let sleep_duration: u64 = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter the sleep duration in milliseconds (ms)")
+        .default(0u64)
+        .interact_text()
+        .unwrap();
+
+    let version: String = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter the semantic version")
+        .default("1.0.0".to_string())
+        .interact_text()
+        .unwrap();
+    
     let available_targets = vec![
         "x86_64-pc-windows-gnu",
         "x86_64-unknown-linux-gnu",
@@ -48,14 +60,14 @@ fn main() {
         let project_path = dir.path();
 
         utils::init_cargo_project(project_path, &repo_name);
-        utils::write_main_rs(project_path, &github_url);
+        utils::write_main_rs(project_path, &github_url, sleep_duration);
         utils::add_dependencies_to_cargo_toml(project_path);
 
         println!("Compiling for: {}", target);
         if utils::compile_project(project_path, target) {
             println!("Successfully compiled for target: {}", target);
 
-            match utils::package_executable(project_path, &repo_name, target, &output_directory) {
+            match utils::package_executable(project_path, &repo_name, target, &version, &output_directory) {
                 Ok(_) => println!("Compiled and zipped for target: {}", target),
                 Err(e) => eprintln!("{}", e),
             }
