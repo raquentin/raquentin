@@ -13,3 +13,7 @@ dialoguer = "0.11.0"
 tempfile = "3.10.0"
 webbrowser = "0.8.12"
 zip = "0.6.6"
+
+[[bin]]
+name = "entitled-exe"
+path = "src/main.rs"
