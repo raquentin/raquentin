@@ -6,7 +6,7 @@ use tempfile::tempdir;
 mod utils;
 
 fn main() {
-    println!("entitled-exe v0.3.0");
+    println!("entitled-exe v0.3.1");
     
     let github_repo: String = Input::with_theme(&ColorfulTheme::default())
         .with_prompt("Enter the GitHub repository (<user/repo>)")

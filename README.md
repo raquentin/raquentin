@@ -2,7 +2,7 @@
 <p>entitled-exe is a CLI tool to programmatically generate executables that open your repository on GitHub in the user's browser.</p>
 
 [![Crates.io](https://img.shields.io/crates/v/entitled-exe.svg)](https://crates.io/crates/entitled-exe)
-![Downloads](https://img.shields.io/crates/dv/entitled-exe/0.3.0)
+![Downloads](https://img.shields.io/crates/dv/entitled-exe/0.3.1)
 
 ### Quick Links
 * [Installation](#installation)
