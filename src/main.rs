@@ -1,10 +1,9 @@
 use dialoguer::{theme::ColorfulTheme, MultiSelect, Input};
-use std::fs::{File, self};
-use std::path::{PathBuf, Path};
-use std::io::Write;
-use std::process::Command;
+use std::fs::{self};
+use std::path::PathBuf;
 use tempfile::tempdir;
-use zip::write::{FileOptions, ZipWriter};
+
+mod utils;
 
 fn main() {
     let github_repo: String = Input::with_theme(&ColorfulTheme::default())
@@ -40,122 +39,28 @@ fn main() {
     for &selection in &selections {
         let target = available_targets[selection];
 
-        if !is_target_installed(target) {
+        if !utils::is_target_installed(target) {
             println!("The target {} is not installed. Please install it using `rustup target add {}`.", target, target);
             return;
         }
-        
-        // Create a temporary directory for the cargo project
+
         let dir = tempdir().unwrap();
         let project_path = dir.path();
 
-        // Initialize a new Cargo project
-        Command::new("cargo")
-            .arg("init")
-            .arg("--name")
-            .arg(&repo_name)
-            .arg(project_path.to_str().unwrap())
-            .status()
-            .expect("Failed to create temporary Cargo project");
+        utils::init_cargo_project(project_path, &repo_name);
+        utils::write_main_rs(project_path, &github_url);
+        utils::add_dependencies_to_cargo_toml(project_path);
 
-        // Create the Rust source file
-        let source_code = format!(
-            r#"use webbrowser;
-            fn main() {{
-                webbrowser::open("{}").unwrap();
-            }}"#,
-            github_url
-        );
-
-        let src_path = project_path.join("src");
-        let main_rs = src_path.join("main.rs");
-        fs::write(main_rs, source_code).expect("Failed to write main.rs");
-
-        // Add dependencies to Cargo.toml
-        let cargo_toml_path = project_path.join("Cargo.toml");
-        let mut cargo_toml = fs::OpenOptions::new()
-            .append(true)
-            .open(cargo_toml_path)
-            .unwrap();
-
-        writeln!(cargo_toml, "\nwebbrowser = \"0.8.12\"").unwrap();
-
-        // Compile the project for the selected target
         println!("Compiling for: {}", target);
-        let status = Command::new("cargo")
-            .current_dir(project_path)
-            .args(["build", "--release", "--target", target])
-            .status()
-            .expect("Failed to compile the project");
-
-        if status.success() {
+        if utils::compile_project(project_path, target) {
             println!("Successfully compiled for target: {}", target);
+
+            match utils::package_executable(project_path, &repo_name, target, &output_directory) {
+                Ok(_) => println!("Compiled and zipped for target: {}", target),
+                Err(e) => eprintln!("{}", e),
+            }
         } else {
             eprintln!("Compilation failed for target: {}", target);
         }
-      
-        let executable_name = if target.contains("windows") {
-            format!("{}.exe", repo_name)
-        } else {
-            repo_name.to_string()
-        };
-        
-        let executable_path = project_path.join("target").join(target).join("release").join(&executable_name);
-
-        if !executable_path.exists() {
-            eprintln!("Expected executable does not exist: {:?}", executable_path);
-            continue; // Skip this target and move to the next
-        }
-        
-        let version = "1.0.0";
-        let archive_name = format!("{}-{}-{}.zip", repo_name, version, target.replace("x86_64", "64bit").replace("i686", "32bit"));
-        let archive_path = output_directory.join(&archive_name);
-
-        // Ensure the output directory exists
-        fs::create_dir_all(&output_directory).expect("Failed to create output directory");
-        
-        println!("Zipping to: {:?}", archive_path);
-        
-        create_zip_archive(
-            &archive_path.to_str().unwrap(),
-            vec![(&executable_name, &executable_path)]
-        ).expect("Failed to create zip archive");
-
-        println!("Compiled and zipped for target: {}", target);
-
-        // The temporary directory and its contents are removed here when `dir` goes out of scope.
     }
-}
-
-fn is_target_installed(target: &str) -> bool {
-    let output = Command::new("rustup")
-        .args(["target", "list", "--installed"])
-        .output()
-        .expect("Failed to execute rustup command");
-
-    if !output.status.success() {
-        eprintln!("Failed to list installed targets");
-        return false;
-    }
-
-    let installed_targets = std::str::from_utf8(&output.stdout).expect("Failed to read rustup output");
-    installed_targets.lines().any(|line| line == target)
-}
-
-fn create_zip_archive(archive_path: &str, files: Vec<(&str, &Path)>) -> zip::result::ZipResult<()> {
-    let file = File::create(archive_path)?;
-    let mut zip = ZipWriter::new(file);
-
-    let options = FileOptions::default()
-        .compression_method(zip::CompressionMethod::Stored) // Change compression method if needed
-        .unix_permissions(0o755);
-
-    for (file_name, path) in files {
-        zip.start_file(file_name, options)?;
-        let mut f = File::open(path)?;
-        std::io::copy(&mut f, &mut zip)?;
-    }
-
-    zip.finish()?;
-    Ok(())
 }

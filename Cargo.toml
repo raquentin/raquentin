@@ -1,6 +1,6 @@
 [package]
 name = "entitled-exe"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Race Williams <race@racewilliams.com"]
 description = "Script kiddies whining about no compiled binaries? Troll them with an exe that opens GitHub."
 license = "MIT"
