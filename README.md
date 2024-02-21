@@ -7,7 +7,7 @@
 * [Installation](#installation)
 * [crates.io/entitled-exe](https://crates.io/crates/entitled-exe)
 
-### How it works
+### Usage
 <table style="border-collapse: collapse; border: none;">
 <tr>
 <td style="border: none;">
@@ -34,11 +34,8 @@
 </table>
 
 ### Installation
-Requirements:
-- Rust v1.74
-- Cargo v1.74
-- The toolchains you choose to compile to
-  - E.g. building for arm-linux-androidabi requires `rustup target add arm-linux-androideabi`
+You'll need Rust, Cargo, and rustup to install this. You'll also need the toolchains you choose to compile to; e.g. building for arm-linux-androidabi requires `rustup target add arm-linux-androideabi`.
+After that, just install with cargo:
 ```
 $ cargo install entitled-exe
 ```
