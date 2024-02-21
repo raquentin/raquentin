@@ -53,7 +53,7 @@ fn main() {
         Command::new("cargo")
             .arg("init")
             .arg("--name")
-            .arg("github_opener")
+            .arg(&repo_name)
             .arg(project_path.to_str().unwrap())
             .status()
             .expect("Failed to create temporary Cargo project");
@@ -95,10 +95,11 @@ fn main() {
         }
       
         let executable_name = if target.contains("windows") {
-            "github_opener.exe"
+            format!("{}.exe", repo_name)
         } else {
-            "github_opener"
+            repo_name.to_string()
         };
+        
         let executable_path = project_path.join("target").join(target).join("release").join(&executable_name);
 
         if !executable_path.exists() {
