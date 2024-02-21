@@ -1,7 +1,13 @@
 <h2>entitled.exe</h2>
 <p>entitled-exe is a CLI tool to programmatically generate executables that open your repository on GitHub in the user's browser.</p>
 
-<h3>How it works</h3>
+[![Crates.io](https://img.shields.io/crates/v/entitled-exe.svg)](https://crates.io/crates/entitled-exe)
+
+### Quick Links
+* [Installation](#installation)
+* [crates.io/entitled-exe](https://crates.io/crates/entitled-exe)
+
+### How it works
 <table style="border-collapse: collapse; border: none;">
 <tr>
 <td style="border: none;">
@@ -26,3 +32,13 @@
 </td>
 </tr>
 </table>
+
+### Installation
+Requirements:
+- Rust v1.74
+- Cargo v1.74
+- The toolchains you choose to compile to
+  - E.g. building for arm-linux-androidabi requires `rustup target add arm-linux-androideabi`
+```
+$ cargo install entitled-exe
+```
