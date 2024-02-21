@@ -16,19 +16,21 @@
 </td>
 <td style="border: none;">
 
-- `cargo install entitled-exe`
-- `cd <dir where you want /builds to go>`
-- `entitled-exe`
+- do `cargo install entitled-exe`
+- do `cd <dir where you want /builds to go>`
+- run `entitled-exe`
 - Enter repository name: `<user/repo>`
-- Select compilation targets: `<use jkl; and space to select>`
+- Select compilation targets with `jk` and `space`
 - generating binaries...
 - zipping binaries...
-- zipped exes saved to /builds
-- maintainer uploads /builds to GitHub releases
-- script kiddie downloads .exe
-- runs ./repo-name
-- github page opens in browser
-- cries
+- done!
+- cd `builds`
+- upload `builds` to GitHub releases
+- script kiddie downloads `<repo>-X.Y.Z-<arch>.zip`
+- extracts to `<repo>.exe` or just `<repo>` on unix
+- runs `./<repo>`
+- browser opens `https://github.com/<user>/<repo>`
+- *cries*
 
 </td>
 </tr>
