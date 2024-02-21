@@ -35,7 +35,7 @@ pub fn add_dependencies_to_cargo_toml(project_path: &Path) {
         .open(cargo_toml_path)
         .expect("Failed to open Cargo.toml");
 
-    writeln!(cargo_toml, "\nwebbrowser = \"0.8.12\"").expect("Failed to write to Cargo.toml");
+    writeln!(cargo_toml, "\nwebbrowser = \"0.8\"").expect("Failed to write to Cargo.toml");
 }
 
 pub fn compile_project(project_path: &Path, target: &str) -> bool {
