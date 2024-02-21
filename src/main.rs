@@ -15,8 +15,8 @@ fn main() {
     let github_url = format!("https://github.com/{}", github_repo);
 
     let repo_parts: Vec<&str> = github_repo.split('/').collect();
-    let repo_name = repo_parts.last().unwrap_or(&"default_repo_name"); // Fallback in case of unexpected format
-    let repo_name = repo_name.replace("/", "-"); // Sanitize, just in case
+    let repo_name = repo_parts.last().unwrap_or(&"default_repo_name");
+    let repo_name = repo_name.replace("/", "-");
     
     let available_targets = vec![
         "x86_64-pc-windows-gnu",
