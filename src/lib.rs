@@ -70,14 +70,14 @@ impl Language<Token> {
         })
     }
 
+    /// Creates a new Dyck context from a slice of pairs.
+    pub fn new_from_arr(pairs: &[(Token, Token)]) -> Result<Self, &'static str> {
+        Self::new_from_vec(&pairs.to_vec())
+    }
+
     // Returns k, the number of parenthesis types in the alphabet.
     pub fn get_k(&self) -> usize {
         self.alphabet.len() / 2
-    }
-
-    /// Creates a new Dyck context from a slice of pairs.
-    pub fn new_from_array(pairs: &[(Token, Token)]) -> Result<Self, &'static str> {
-        Self::new_from_vec(&pairs.to_vec())
     }
 
     /// Checks if a token is an opening token.
@@ -156,8 +156,11 @@ impl Language<Token> {
     }
 
     /// Finds the shortest completion of a word to make it a valid Dyck word.
-    pub fn shortest_completion(&self, word: &Word) -> Vec<Token> {
+    /// Returns the shorted appendage to make the word valid Dyck, or an error if no such appendage
+    /// exists.
+    pub fn shortest_validating_appendage(&self, word: &Word) -> Result<Word, &'static str> {
         let mut stack = Vec::new();
+        let mut completed_word = word.clone();
 
         for &token in word {
             if self.is_open(token) {
@@ -166,20 +169,22 @@ impl Language<Token> {
                 if let Some(&last) = stack.last() {
                     if self.open_to_close[&last] == token {
                         stack.pop();
-                    } else {
-                        break;
                     }
-                } else {
-                    break;
+                } else if stack.is_empty() {
+                    return Err(
+                        "no dyck-validating appendage exists, word contains a leading close token",
+                    );
                 }
             }
         }
 
-        stack
-            .into_iter()
-            .rev()
-            .filter_map(|token| self.get_close(token))
-            .collect()
+        for token in stack.into_iter().rev() {
+            if let Some(close_token) = self.get_close(token) {
+                completed_word.push(close_token);
+            }
+        }
+
+        Ok(completed_word)
     }
 
     /// Finds the closing token corresponding to an open token.
