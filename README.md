@@ -53,4 +53,4 @@ Either way, the all `dyck` functions and objects are built for a generic `T: Dyc
 
 ## License
 
-This crate is licensed under the MIT License, see `LICENSE.md`
+This crate is licensed under the MIT License, see `LICENSE.md`.
