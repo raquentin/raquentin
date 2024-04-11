@@ -6,4 +6,9 @@ authors = ["Race Williams <race@raquent.in>"]
 repository = "https://github.com/raquentin/dyck"
 license = "MIT"
 
+[features]
+default = []
+derive = ["dyck-derive"]
+
 [dependencies]
+dyck-derive = { version = "0.1.0", path = "../dyck-derive/", optional = true}

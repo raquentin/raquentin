@@ -23,7 +23,7 @@
 //!     let language = Language::new_from_vec(&pairs).expect("Failed to create language");
 //!
 //!     // define a word to check
-//!     let word: Word = vec!["(", "[", "]", "(", ")", ")"];
+//!     let word: Word<&str> = vec!["(", "[", "]", "(", ")", ")"];
 //!
 //!     // check if the word is a valid Dyck word
 //!     if language.is_valid(&word) {
@@ -38,19 +38,34 @@
 
 use std::collections::HashMap;
 
-/// Allows dynamic Dyck alphabets for compatibility with user-defined tokens.
-type Token = &'static str;
+#[cfg(feature = "derive")]
+pub use dyck_derive::DyckToken;
+
+/// A trait implementable by user-defined enums to gain compatiblity with all Dyck functions.
+pub trait DyckToken: Clone + Copy + Eq + std::hash::Hash {}
+
+impl DyckToken for &str {}
+
+/// A word is a sequence of tokens to be evaluated relative to a Dyck language.
+/// It is not necessarily a dyck word, just a dyck candidate.
+pub type Word<T> = Vec<T>;
 
 /// Stores the context to be used to run algorithms on potential dyck words.
-pub struct Language<Token> {
-    alphabet: Vec<Token>,
-    open_to_close: HashMap<Token, Token>,
-    close_to_open: HashMap<Token, Token>,
+pub struct Language<T>
+where
+    T: DyckToken,
+{
+    alphabet: Vec<T>,
+    open_to_close: HashMap<T, T>,
+    close_to_open: HashMap<T, T>,
 }
 
-impl Language<Token> {
+impl<T> Language<T>
+where
+    T: DyckToken,
+{
     /// Creates a new Dyck context from a vector of pairs.
-    pub fn new_from_vec(pairs: &Vec<(Token, Token)>) -> Result<Self, &'static str> {
+    pub fn new_from_vec(pairs: &Vec<(T, T)>) -> Result<Self, &'static str> {
         let mut alphabet = Vec::new();
         let mut open_to_close = HashMap::new();
         let mut close_to_open = HashMap::new();
@@ -71,7 +86,7 @@ impl Language<Token> {
     }
 
     /// Creates a new Dyck context from a slice of pairs.
-    pub fn new_from_arr(pairs: &[(Token, Token)]) -> Result<Self, &'static str> {
+    pub fn new_from_arr(pairs: &[(T, T)]) -> Result<Self, &'static str> {
         Self::new_from_vec(&pairs.to_vec())
     }
 
@@ -81,17 +96,17 @@ impl Language<Token> {
     }
 
     /// Checks if a token is an opening token.
-    pub fn is_open(&self, token: Token) -> bool {
+    pub fn is_open(&self, token: T) -> bool {
         self.open_to_close.contains_key(&token)
     }
 
     /// Checks if a token is a closing token.
-    pub fn is_close(&self, token: Token) -> bool {
+    pub fn is_close(&self, token: T) -> bool {
         self.close_to_open.contains_key(&token)
     }
 
     /// Checks if a word is a valid Dyck word.
-    pub fn is_valid(&self, word: &Word) -> bool {
+    pub fn is_valid(&self, word: &Word<T>) -> bool {
         let mut stack = Vec::new();
         for &token in word {
             if self.is_open(token) {
@@ -113,7 +128,7 @@ impl Language<Token> {
 
     /// Checks whether a word has balanced open and close tokens, but not necessarily in the
     /// correct order.
-    pub fn is_balanced(&self, word: &Word) -> bool {
+    pub fn is_balanced(&self, word: &Word<T>) -> bool {
         let mut count = 0;
         for &token in word {
             if self.is_open(token) {
@@ -129,7 +144,7 @@ impl Language<Token> {
     }
 
     /// Finds the length of the longest valid prefix of a word.
-    pub fn longest_valid_prefix(&self, word: &Word) -> usize {
+    pub fn longest_valid_prefix(&self, word: &Word<T>) -> usize {
         let mut stack = Vec::new();
         let mut length = 0;
 
@@ -156,9 +171,8 @@ impl Language<Token> {
     }
 
     /// Finds the shortest completion of a word to make it a valid Dyck word.
-    /// Returns the shorted appendage to make the word valid Dyck, or an error if no such appendage
-    /// exists.
-    pub fn shortest_validating_appendage(&self, word: &Word) -> Result<Word, &'static str> {
+    /// Returns the validating shortest appendage, or None if no such appendage exists.
+    pub fn shortest_validating_appendage(&self, word: &Word<T>) -> Option<Word<T>> {
         let mut stack = Vec::new();
         let mut completed_word = word.clone();
 
@@ -171,9 +185,7 @@ impl Language<Token> {
                         stack.pop();
                     }
                 } else if stack.is_empty() {
-                    return Err(
-                        "no dyck-validating appendage exists, word contains a leading close token",
-                    );
+                    return None;
                 }
             }
         }
@@ -184,20 +196,16 @@ impl Language<Token> {
             }
         }
 
-        Ok(completed_word)
+        Some(completed_word)
     }
 
     /// Finds the closing token corresponding to an open token.
-    pub fn get_close(&self, open: Token) -> Option<Token> {
+    pub fn get_close(&self, open: T) -> Option<T> {
         self.open_to_close.get(&open).copied()
     }
 
     /// Finds the opening token corresponding to a closing token.
-    pub fn get_open(&self, close: Token) -> Option<Token> {
+    pub fn get_open(&self, close: T) -> Option<T> {
         self.close_to_open.get(&close).copied()
     }
 }
-
-/// A word is a sequence of tokens to be evaluated relative to a Dyck language.
-/// It is not necessarily a dyck word, just a dyck candidate.
-pub type Word = Vec<Token>;

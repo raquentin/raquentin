@@ -72,7 +72,7 @@ mod core_tests {
     #[test]
     fn get_k_with_no_pairs() {
         let pairs = Vec::new();
-        let language =
+        let language: Language<&str> =
             Language::new_from_vec(&pairs).expect("failed to create language with no pairs");
         assert_eq!(
             language.get_k(),
@@ -101,9 +101,9 @@ mod core_tests {
     fn is_valid() {
         let pairs = vec![("[", "]"), ("{", "}")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let valid_word: Word = vec!["[", "{", "}", "]"];
+        let valid_word: Word<&str> = vec!["[", "{", "}", "]"];
         assert!(language.is_valid(&valid_word));
-        let invalid_word: Word = vec!["[", "{", "]"];
+        let invalid_word: Word<&str> = vec!["[", "{", "]"];
         assert!(!language.is_valid(&invalid_word));
     }
 
@@ -121,7 +121,7 @@ mod core_tests {
     fn is_valid_incorrect_closing_order() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let invalid_word: Word = vec!["[", "(", "]", ")"];
+        let invalid_word: Word<&str> = vec!["[", "(", "]", ")"];
         assert!(
             !language.is_valid(&invalid_word),
             "word with incorrect closing order should be invalid"
@@ -132,9 +132,9 @@ mod core_tests {
     fn is_balanced() {
         let pairs = vec![("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let balanced_word: Word = vec!["[", "]"];
+        let balanced_word: Word<&str> = vec!["[", "]"];
         assert!(language.is_balanced(&balanced_word));
-        let unbalanced_word: Word = vec!["[", "["];
+        let unbalanced_word: Word<&str> = vec!["[", "["];
         assert!(!language.is_balanced(&unbalanced_word));
     }
 
@@ -142,7 +142,7 @@ mod core_tests {
     fn appending_to_valid_sequence_returns_same_sequence() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "]", ")"]; // already valid.
+        let word: Word<&str> = vec!["(", "[", "]", ")"]; // already valid.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
 
@@ -156,10 +156,10 @@ mod core_tests {
     fn appending_completes_sequence_needing_closures() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "["]; // needs "]])" to be complete.
+        let word: Word<&str> = vec!["(", "[", "["]; // needs "]])" to be complete.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
-        let expected_completion: Word = vec!["(", "[", "[", "]", "]", ")"];
+        let expected_completion: Word<&str> = vec!["(", "[", "[", "]", "]", ")"];
 
         assert_eq!(
             result, expected_completion,
@@ -171,13 +171,13 @@ mod core_tests {
     fn appending_error_for_leading_close_token() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec![")", "(", "[", "]"]; // invalid start.
+        let word: Word<&str> = vec![")", "(", "[", "]"]; // invalid start.
 
         let result = language.shortest_validating_appendage(&word);
 
         assert!(
-            result.is_err(),
-            "should return an error for words starting with a closing token"
+            result.is_none(),
+            "should return None for words starting with a closing token"
         );
     }
 
@@ -185,7 +185,7 @@ mod core_tests {
     fn appending_to_empty_sequence_returns_empty() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec![];
+        let word: Word<&str> = vec![];
 
         let result = language.shortest_validating_appendage(&word).unwrap();
 
@@ -199,10 +199,10 @@ mod core_tests {
     fn appending_corrects_sequence_with_multiple_unmatched_opens() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "(", "["]; // needs "])])" to be complete.
+        let word: Word<&str> = vec!["(", "[", "(", "["]; // needs "])])" to be complete.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
-        let expected_completion: Word = vec!["(", "[", "(", "[", "]", ")", "]", ")"];
+        let expected_completion: Word<&str> = vec!["(", "[", "(", "[", "]", ")", "]", ")"];
 
         assert_eq!(
             result, expected_completion,
@@ -214,7 +214,7 @@ mod core_tests {
     fn longest_valid_prefix() {
         let pairs = vec![("(", ")")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "(", ")", ")", "(", ")"];
+        let word: Word<&str> = vec!["(", "(", ")", ")", "(", ")"];
         assert_eq!(language.longest_valid_prefix(&word), 6);
     }
 
@@ -233,7 +233,7 @@ mod core_tests {
     fn longest_valid_prefix_incorrect_nesting() {
         let pairs = vec![("(", ")")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", ")", "(", ")", ")"];
+        let word: Word<&str> = vec!["(", ")", "(", ")", ")"];
         assert_eq!(
             language.longest_valid_prefix(&word),
             4,
@@ -245,7 +245,7 @@ mod core_tests {
     fn longest_valid_prefix_entire_word() {
         let pairs = vec![("[", "]"), ("{", "}")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["[", "{", "}", "]"];
+        let word: Word<&str> = vec!["[", "{", "}", "]"];
         assert_eq!(
             language.longest_valid_prefix(&word),
             word.len(),
@@ -257,7 +257,7 @@ mod core_tests {
     fn longest_valid_prefix_with_unmatched_open() {
         let pairs = vec![("(", ")")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "("];
+        let word: Word<&str> = vec!["(", "("];
         assert_eq!(
             language.longest_valid_prefix(&word),
             0,
@@ -269,7 +269,7 @@ mod core_tests {
     fn longest_valid_prefix_with_unmatched_close() {
         let pairs = vec![("(", ")")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec![")", "("];
+        let word: Word<&str> = vec![")", "("];
         assert_eq!(
             language.longest_valid_prefix(&word),
             0,
