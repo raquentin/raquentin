@@ -15,21 +15,11 @@
 //! ## Example: Creating a Dyck language and checking if a word is valid.
 //!
 //! ```rust
-//! use dyck::{Language, Word};
-//!
 //! // define pairs of tokens for the language
 //! let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
-//! let language = Language::new_from_vec(&pairs).expect("Failed to create language");
-//!
-//! // define a word to check
-//! let word: Word<&str> = vec!["(", "[", "]", "(", ")", ")"];
-//!
-//! // check if the word is a valid Dyck word
-//! if language.is_valid(&word) {
-//!         println!("The word is a valid Dyck word.");
-//! } else {
-//!     println!("The word is not a valid Dyck word.");
-//! }
+//! let language = dyck::Language::new_from_vec(&pairs).unwrap();
+//! let word: dyck::Word<&str> = vec!["(", "[", "]", "(", ")", ")"];
+//! assert_eq!(language.is_valid(&word), true);
 //! ```
 //!
 //! See /examples in the repository root for more examples.

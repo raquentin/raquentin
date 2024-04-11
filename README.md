@@ -14,26 +14,17 @@ You can use this crate with either `&str` string slices or with custom user-defi
 The former allows for easy construction of typical Dyck alphabets consisting of "()", "[]", "{}", and even custom string pairs like "<>" or "<3":
 
 ```rust
-use dyck::{Language, Word};
-
 let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
-let language = Language::new_from_vec(&pairs).expect("failed to create language");
-let word: Word = vec!["(", "[", "]", "(", ")", ")"];
-
-if language.is_valid(&word) {
-    println!("the word is a valid Dyck word");
-} else {
-    println!("the word is not a valid Dyck word");
-}
+let language = dyck::Language::new_from_vec(&pairs).unwrap("");
+let word: dyck::Word<&str> = vec!["(", "[", "]", "(", ")", ")"];
+asserteq!(language.is_valid(&word), true);
 ```
 
 The latter is more practical for use with existing programming languages or static analysis tools with lexers defining tokens as instances of a custom Token enum:
 
 ```rust
 // requires features = ["derive"] in Cargo.toml
-use dyck::{Language, Word, DyckToken};
-
-#[derive(DyckToken)]
+#[derive(dyck::DyckToken)]
 enum Token {
     OpenParen,
     CloseParen,
@@ -45,7 +36,7 @@ let pairs = vec![
     (Token::OpenParen, Token::CloseParen),
     (Token::OpenBracket, Token::CloseBracket),
 ];
-let language = Language::new_from_vec(&pairs).expect("failed to create language");
+let language = dyck::Language::new_from_vec(&pairs);
 assert_eq!(language.get_k(), 2);
 ```
 
