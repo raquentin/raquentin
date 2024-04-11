@@ -9,13 +9,13 @@ use dyck::{Language, Word};
 
 fn main() {
     let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
-    let language = Language::new_from_vec(&pairs).expect("Failed to create language");
+    let language = Language::new_from_vec(&pairs).expect("failed to create language");
     let word: Word = vec!["(", "[", "]", "(", ")", ")"];
 
     if language.is_valid(&word) {
-        println!("The word is a valid Dyck word.");
+        println!("the word is a valid Dyck word");
     } else {
-        println!("The word is not a valid Dyck word.");
+        println!("the word is not a valid Dyck word");
     }
 }
 ```

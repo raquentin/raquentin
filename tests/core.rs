@@ -49,7 +49,7 @@ mod core_tests {
     fn get_k_with_single_pair() {
         let pairs = vec![("(", ")")];
         let language =
-            Language::new_from_vec(&pairs).expect("Failed to create language with single pair");
+            Language::new_from_vec(&pairs).expect("failed to create language with single pair");
         assert_eq!(
             language.get_k(),
             1,
@@ -61,7 +61,7 @@ mod core_tests {
     fn get_k_with_multiple_pairs() {
         let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
         let language =
-            Language::new_from_vec(&pairs).expect("Failed to create language with multiple pairs");
+            Language::new_from_vec(&pairs).expect("failed to create language with multiple pairs");
         assert_eq!(
             language.get_k(),
             3,
@@ -73,7 +73,7 @@ mod core_tests {
     fn get_k_with_no_pairs() {
         let pairs = Vec::new();
         let language =
-            Language::new_from_vec(&pairs).expect("Failed to create language with no pairs");
+            Language::new_from_vec(&pairs).expect("failed to create language with no pairs");
         assert_eq!(
             language.get_k(),
             0,
@@ -113,7 +113,7 @@ mod core_tests {
         let language = Language::new_from_vec(&pairs).unwrap();
         assert!(
             language.is_valid(&Vec::new()),
-            "An empty word should be considered valid"
+            "an empty word should be considered valid"
         );
     }
 
@@ -124,7 +124,7 @@ mod core_tests {
         let invalid_word: Word = vec!["[", "(", "]", ")"];
         assert!(
             !language.is_valid(&invalid_word),
-            "Word with incorrect closing order should be invalid"
+            "word with incorrect closing order should be invalid"
         );
     }
 
@@ -142,13 +142,13 @@ mod core_tests {
     fn appending_to_valid_sequence_returns_same_sequence() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "]", ")"]; // Already valid.
+        let word: Word = vec!["(", "[", "]", ")"]; // already valid.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
 
         assert_eq!(
             result, word,
-            "Appending to an already valid sequence should return the sequence unchanged."
+            "appending to an already valid sequence should return the sequence unchanged"
         );
     }
 
@@ -156,28 +156,28 @@ mod core_tests {
     fn appending_completes_sequence_needing_closures() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "["]; // Needs "]])" to be complete.
+        let word: Word = vec!["(", "[", "["]; // needs "]])" to be complete.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
         let expected_completion: Word = vec!["(", "[", "[", "]", "]", ")"];
 
         assert_eq!(
             result, expected_completion,
-            "The completion should correctly close all open brackets."
+            "the completion should correctly close all open brackets"
         );
     }
 
     #[test]
-    fn error_for_leading_close_token() {
+    fn appending_error_for_leading_close_token() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec![")", "(", "[", "]"]; // Invalid start.
+        let word: Word = vec![")", "(", "[", "]"]; // invalid start.
 
         let result = language.shortest_validating_appendage(&word);
 
         assert!(
             result.is_err(),
-            "Should return an error for words starting with a closing token."
+            "should return an error for words starting with a closing token"
         );
     }
 
@@ -185,13 +185,13 @@ mod core_tests {
     fn appending_to_empty_sequence_returns_empty() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec![]; // Empty.
+        let word: Word = vec![];
 
         let result = language.shortest_validating_appendage(&word).unwrap();
 
         assert!(
             result.is_empty(),
-            "Appending to an empty sequence should return an empty sequence."
+            "appending to an empty sequence should return an empty sequence"
         );
     }
 
@@ -199,14 +199,14 @@ mod core_tests {
     fn appending_corrects_sequence_with_multiple_unmatched_opens() {
         let pairs = vec![("(", ")"), ("[", "]")];
         let language = Language::new_from_vec(&pairs).unwrap();
-        let word: Word = vec!["(", "[", "(", "["]; // Needs "])])" to be complete.
+        let word: Word = vec!["(", "[", "(", "["]; // needs "])])" to be complete.
 
         let result = language.shortest_validating_appendage(&word).unwrap();
         let expected_completion: Word = vec!["(", "[", "(", "[", "]", ")", "]", ")"];
 
         assert_eq!(
             result, expected_completion,
-            "The completion should correctly close all open brackets in reverse order."
+            "the completion should correctly close all open brackets in reverse order"
         );
     }
 
@@ -225,7 +225,7 @@ mod core_tests {
         assert_eq!(
             language.longest_valid_prefix(&Vec::new()),
             0,
-            "The longest valid prefix of an empty word should be 0"
+            "the longest valid prefix of an empty word should be 0"
         );
     }
 
@@ -237,7 +237,7 @@ mod core_tests {
         assert_eq!(
             language.longest_valid_prefix(&word),
             4,
-            "Incorrect nesting should limit valid prefix length"
+            "incorrect nesting should limit valid prefix length"
         );
     }
 
@@ -249,7 +249,7 @@ mod core_tests {
         assert_eq!(
             language.longest_valid_prefix(&word),
             word.len(),
-            "The entire word should be a valid prefix"
+            "the entire word should be a valid prefix"
         );
     }
 
@@ -261,7 +261,7 @@ mod core_tests {
         assert_eq!(
             language.longest_valid_prefix(&word),
             0,
-            "Word with unmatched open should have 0 as longest valid prefix"
+            "word with unmatched open should have 0 as longest valid prefix"
         );
     }
 
@@ -273,7 +273,7 @@ mod core_tests {
         assert_eq!(
             language.longest_valid_prefix(&word),
             0,
-            "Word with unmatched close should have 0 as longest valid prefix"
+            "word with unmatched close should have 0 as longest valid prefix"
         );
     }
 
