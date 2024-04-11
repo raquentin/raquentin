@@ -2,6 +2,10 @@
 
 This is a Rust crate for defining Dyck languages and running Dyck (and soon, InterDyck) algorithms on them. It enables the creation of languages with customizable token pairs (beyond ascii parenthesis), providing functionalities such as validity checks, shortest completion finding, and more, making it ideal for applications in compiler construction, parsing, and related fields.
 
+## Features
+
+- 
+
 ## Usage
 
 ```rust

@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Race Williams <race@raquent.in>"]
 repository = "https://github.com/raquentin/dyck"
+documentation = "https://docs.rs/dyck-derive"
+keywords = ["dyck", "spa", "grammar", "proc-macro"]
 license = "MIT"
 
 [lib]
