@@ -9,7 +9,7 @@ This is a Rust crate for defining Dyck languages and running Dyck (and soon, Int
 
 ## Usage
 
-There are two ways to use the `dyck` crate: with `&str` string slices or with custom user-defined enum instance tokens.
+You can use this crate with either `&str` string slices or with custom user-defined enum instance tokens.
 
 The former allows for easy construction of typical Dyck alphabets consisting of "()", "[]", "{}", and even custom string pairs like "<>" or "<3":
 
@@ -27,7 +27,7 @@ if language.is_valid(&word) {
 }
 ```
 
-The latter is more practical for use with existing programming languages or similar programs, particularly those with lexers defining tokens as instances of a custom Token enum:
+The latter is more practical for use with existing programming languages or static analysis tools with lexers defining tokens as instances of a custom Token enum:
 
 ```rust
 // requires features = ["derive"] in Cargo.toml
