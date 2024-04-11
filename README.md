@@ -24,4 +24,4 @@ More examples are available in the `/examples` dir.
 
 ## License
 
-`dyck` is licensed under the MIT License, see `LICENSE.md`
+This crate is licensed under the MIT License, see `LICENSE.md`
