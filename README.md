@@ -17,7 +17,7 @@ The former allows for easy construction of typical Dyck alphabets consisting of 
 let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
 let language = dyck::Language::new_from_vec(&pairs).unwrap("");
 let word: dyck::Word<&str> = vec!["(", "[", "]", "(", ")", ")"];
-asserteq!(language.is_valid(&word), true);
+assert_eq!(language.is_valid(&word), true);
 ```
 
 The latter is more practical for use with existing programming languages or static analysis tools with lexers defining tokens as instances of a custom Token enum:
@@ -36,6 +36,7 @@ let pairs = vec![
     (Token::OpenParen, Token::CloseParen),
     (Token::OpenBracket, Token::CloseBracket),
 ];
+
 let language = dyck::Language::new_from_vec(&pairs);
 assert_eq!(language.get_k(), 2);
 ```
