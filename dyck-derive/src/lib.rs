@@ -2,6 +2,22 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, DeriveInput};
 
+/// Derives the `DyckToken` trait for the given enum.
+///
+/// This derive macro automatically implements the `DyckToken` trait and its required
+/// traits (`Clone`, `Copy`, `Eq`, `PartialEq`, and `Hash`) for the enum it is applied to.
+///
+/// # Example
+///
+/// ```rust
+/// use dyck::DyckToken;
+///
+/// #[derive(DyckToken)]
+/// enum MyToken {
+///     Open,
+///     Close,
+/// }
+/// ```
 #[proc_macro_derive(DyckToken)]
 pub fn derive_token(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
