@@ -7,6 +7,7 @@ repository = "https://github.com/raquentin/dyck"
 documentation = "https://docs.rs/dyck-derive"
 keywords = ["dyck", "spa", "grammar", "proc-macro"]
 license = "MIT"
+description = "A procedural macro to derive the DyckToken trait on a post-lexer Token enum for use in running Dyck and InterDyck algorithms."
 
 [lib]
 proc-macro = true
