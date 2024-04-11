@@ -9,7 +9,7 @@ This is a Rust crate for defining Dyck languages and running Dyck (and soon, Int
 
 ## Usage
 
-There are two main ways to use the `dyck` crate: with `&str` string slice tokens or with custom user-defined enum instance tokens.
+There are two ways to use the `dyck` crate: with `&str` string slices or with custom user-defined enum instance tokens.
 
 The former allows for easy construction of typical Dyck alphabets consisting of "()", "[]", "{}", and even custom string pairs like "<>" or "<3":
 
