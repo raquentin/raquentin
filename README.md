@@ -5,6 +5,7 @@ This is a Rust crate for defining Dyck languages and running Dyck (and soon, Int
 ## Features
 - Functions for verifying Dyck words, finding Dyck prefixes, finding smallest Dyck-verifying appendages, and more.
 - A `#[derive(DyckToken)]` procedural macro for constructing languages and Dyck words from any struct or primitive.
+- Zero dependencies in the `dyck` core (`dyck-derive` needs `syn` and `quote` for the `DyckToken` macro).
 - Coming soon: graph-based InterDyck algorithms.
 
 ## Usage
