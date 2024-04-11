@@ -1,18 +1,54 @@
+//! A library for running Dyck algorithms over languages of generic <Token> string slice types.
+//!
+//! This module provides functionalities to create and manipulate languages
+//! based on user-defined tokens, allowing for the evaluation and transformation
+//! of sequences of tokens (words) according to the rules of Dyck languages.
+//!
+//! ## Usage
+//!
+//! Add `dyck` to your `Cargo.toml`:
+//!
+//! ```toml
+//! [dependencies]
+//! dyck = "0.1"
+//! ```
+//! ## Example: Creating a Dyck language and checking if a word is valid.
+//!
+//! ```rust
+//! use dyck::{Language, Word};
+//!
+//! fn main() {
+//!     // Define pairs of tokens for the language
+//!     let pairs = vec![("(", ")"), ("[", "]"), ("{", "}")];
+//!     let language = Language::new_from_vec(&pairs).expect("Failed to create language");
+//!
+//!     // Define a word to check
+//!     let word: Word = vec!["(", "[", "]", "(", ")", ")"];
+//!
+//!     // Check if the word is a valid Dyck word
+//!     if language.is_valid(&word) {
+//!         println!("The word is a valid Dyck word.");
+//!     } else {
+//!         println!("The word is not a valid Dyck word.");
+//!     }
+//! }
+//! ```
+//!
+//! See /examples for more examples.
+
 use std::collections::HashMap;
 
 /// Allows dynamic Dyck alphabets for compatibility with user-defined tokens.
-/// Tokens are often represented as enum variants, hence usize.
-type Token = usize;
+type Token = &'static str;
 
 /// Stores the context to be used to run algorithms on potential dyck words.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Language<T> {
-    alphabet: Vec<T>,
-    open_to_close: HashMap<T, T>,
-    close_to_open: HashMap<T, T>,
+pub struct Language<Token> {
+    alphabet: Vec<Token>,
+    open_to_close: HashMap<Token, Token>,
+    close_to_open: HashMap<Token, Token>,
 }
 
-impl Language<T> {
+impl Language<Token> {
     /// Creates a new Dyck context from a vector of pairs.
     pub fn new_from_vec(pairs: &Vec<(Token, Token)>) -> Result<Self, &'static str> {
         let mut alphabet = Vec::new();
@@ -32,6 +68,11 @@ impl Language<T> {
             open_to_close,
             close_to_open,
         })
+    }
+
+    // Returns k, the number of parenthesis types in the alphabet.
+    pub fn get_k(&self) -> usize {
+        self.alphabet.len() / 2
     }
 
     /// Creates a new Dyck context from a slice of pairs.
@@ -92,7 +133,7 @@ impl Language<T> {
         let mut stack = Vec::new();
         let mut length = 0;
 
-        for &token in word {
+        for (i, &token) in word.iter().enumerate() {
             if self.is_open(token) {
                 stack.push(token);
             } else if self.is_close(token) {
@@ -100,7 +141,7 @@ impl Language<T> {
                     if self.open_to_close[&last] == token {
                         stack.pop();
                         if stack.is_empty() {
-                            length = word.len();
+                            length = i + 1;
                         }
                     } else {
                         break;
@@ -152,11 +193,6 @@ impl Language<T> {
     }
 }
 
-/// A word is a sequence of tokens, not necessarily a dyck word.
+/// A word is a sequence of tokens to be evaluated relative to a Dyck language.
+/// It is not necessarily a dyck word, just a dyck candidate.
 pub type Word = Vec<Token>;
-
-pub struct ThreeParensContext {
-    SquareOpen, SquareClose,
-    ParenOpen, ParenClose,
-    CurlyOpen, CurlyClose,
-}
