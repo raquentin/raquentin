@@ -1,12 +1,11 @@
 # dyck ()[]{}
 
-This is a Rust crate for defining Dyck languages and running Dyck (and soon, InterDyck) algorithms on them. It enables the creation of languages with customizable token pairs (beyond ascii parenthesis), providing functionalities such as validity checks, shortest completion finding, and more, making it ideal for applications in compiler construction, parsing, and related fields.
+This is a Rust crate for defining Dyck languages from ASCII characters (like the traditional ()[]{}) or from instanced of an enum deriving the exported `DyckToken` trait.
 
 ## Features
 - Functions for verifying Dyck words, finding Dyck prefixes, finding smallest Dyck-verifying appendages, and more.
 - A `#[derive(DyckToken)]` procedural macro for constructing languages and Dyck words from any struct or primitive.
 - Zero dependencies in the `dyck` core (`dyck-derive` needs `syn` and `quote` for the `DyckToken` macro).
-- Coming soon: graph-based InterDyck algorithms.
 
 ## Usage
 
