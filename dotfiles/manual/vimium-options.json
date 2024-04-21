@@ -1,0 +1,5 @@
+{
+  "scrollStepSize": 30,
+  "settingsVersion": "2.0.6",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#f2f2f2));\nborder: 1px solid #d9d9d9;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\ncolor: #545454\n}"
+}
