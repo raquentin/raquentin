@@ -1,4 +1,4 @@
-# dyck ()[]{}
+# Dyck ()[]{}
 
 This is a Rust crate for defining Dyck languages from ASCII characters (like the traditional ()[]{}) or from instanced of an enum deriving the exported `DyckToken` trait.
 
