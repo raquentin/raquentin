@@ -476,23 +476,23 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Copilot
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			})
-		end,
-	},
-	{ -- Copilot working with cmp
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
+	-- { -- Copilot
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("copilot").setup({
+	-- 			suggestion = { enabled = false },
+	-- 			panel = { enabled = false },
+	-- 		})
+	-- 	end,
+	-- },
+	-- { -- Copilot working with cmp
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
 
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
