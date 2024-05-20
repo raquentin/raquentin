@@ -27,3 +27,7 @@ esac
 
 export FLYCTL_INSTALL="/home/race/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+alias mydocker='docker build -t mydocker . && docker run --cap-add="SYS_ADMIN" mydocker'
+
+date
