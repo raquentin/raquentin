@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- NoNeckPain
-vim.keymap.set("n", "<leader>n", "<cmd>NoNeckPain<CR>", { desc = "Toggle [N]eck Pain" })
+--[[ vim.keymap.set("n", "<leader>n", "<cmd>NoNeckPain<CR>", { desc = "Toggle [N]eck Pain" }) ]]
 
 -- [[ Basic Autocommands ]]
 --  See :help lua-guide-autocommands
@@ -76,13 +76,13 @@ require("lazy").setup({
 
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
-	{
-		"shortcuts/no-neck-pain.nvim", -- center buffer
-		opts = {
-			width = "colorcolumn",
-		},
-	},
-
+	-- {
+	-- 	"shortcuts/no-neck-pain.nvim", -- center buffer
+	-- 	opts = {
+	-- 		width = "colorcolumn",
+	-- 	},
+	-- },
+	--
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
@@ -396,21 +396,6 @@ require("lazy").setup({
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
-				clangd = {},
-				pyright = {},
-				rust_analyzer = {},
-				bashls = {},
-				cmake = {},
-				cssls = {},
-				svelte = {},
-				docker_compose_language_service = {},
-				dockerls = {},
-				eslint = {},
-				html = {},
-				jsonls = {},
-				marksman = {},
-				tailwindcss = {},
-				tsserver = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -476,24 +461,24 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Copilot
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			})
-		end,
-	},
-	{ -- Copilot working with cmp
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
-
+	-- { -- Copilot
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("copilot").setup({
+	-- 			suggestion = { enabled = false },
+	-- 			panel = { enabled = false },
+	-- 		})
+	-- 	end,
+	-- },
+	-- { -- Copilot working with cmp
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
+	--
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -560,13 +545,13 @@ require("lazy").setup({
 
 	{
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"catppuccin/nvim",
+		"bluz71/vim-moonfly-colors",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
-		flavour = "mocha",
+		name = "moonfly",
 		config = function()
 			-- Load the colorscheme here
-			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("moonfly")
 			-- You can configure highlights by doing something like
 		end,
 	},

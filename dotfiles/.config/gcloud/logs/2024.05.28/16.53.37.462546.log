@@ -1,0 +1,39 @@
+2024-05-28 16:53:37,482 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2024-05-28 16:53:37,500 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'get_iam_policy']
+2024-05-28 16:53:37,502 DEBUG    root            Running [gcloud.projects.get-iam-policy] with arguments: [PROJECT_ID_OR_NUMBER: "cktest-back-end"]
+2024-05-28 16:53:37,539 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-05-28 16:53:37,812 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/cktest-back-end:getIamPolicy?alt=json HTTP/1.1" 403 None
+2024-05-28 16:53:37,814 DEBUG    root            (gcloud.projects.get-iam-policy) User [race.williams@creditkarma.com] does not have permission to access projects instance [cktest-back-end:getIamPolicy] (or it may not exist): The caller does not have permission
+Traceback (most recent call last):
+  File "/usr/local/share/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 998, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 815, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/surface/projects/get_iam_policy.py", line 48, in Run
+    return projects_api.GetIamPolicy(project_ref)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/googlecloudsdk/api_lib/cloudresourcemanager/projects_api.py", line 227, in GetIamPolicy
+    return client.projects.GetIamPolicy(policy_request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/cloudresourcemanager/v1/cloudresourcemanager_v1_client.py", line 836, in GetIamPolicy
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 737, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 743, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/share/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 609, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpForbiddenError: HttpError accessing <https://cloudresourcemanager.googleapis.com/v1/projects/cktest-back-end:getIamPolicy?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Tue, 28 May 2024 20:53:37 GMT', 'server': 'ESF', 'cache-control': 'private', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'server-timing': 'gfet4t7; dur=157', 'transfer-encoding': 'chunked', 'status': 403}>, content <{
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+>
+2024-05-28 16:53:37,821 ERROR    root            (gcloud.projects.get-iam-policy) User [race.williams@creditkarma.com] does not have permission to access projects instance [cktest-back-end:getIamPolicy] (or it may not exist): The caller does not have permission
