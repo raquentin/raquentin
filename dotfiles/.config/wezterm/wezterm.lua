@@ -8,13 +8,14 @@ end
 
 config.color_scheme = "Catppuccin Mocha"
 
-config.font_size = 18
+config.font_size = 16
 config.font = wezterm.font("JetBrains Mono")
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_max_width = 4
+config.enable_wayland = false
 
 config.keys = {
 	{

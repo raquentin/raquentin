@@ -11,8 +11,8 @@ plugins=(git)
 #source 'Users/race.williams/google-cloud-sdk/completion.zsh.inc'
 
 # golang
-export GOPATH=$HOME/go
-export PATH="/usr/local/opt/go@1.20/bin:$PATH"
+#export GOPATH=$HOME/go
+#export PATH="/usr/local/opt/go@1.20/bin:$PATH"
 
 alias ls="eza"
 alias cd="z"
@@ -20,4 +20,3 @@ alias cat="bat"
 alias lg="lazygit"
 alias q="exit"
 eval "$(zoxide init zsh)"
-source <(fzf --zsh)
