@@ -156,7 +156,7 @@ require("lazy").setup({
 			{
 				"<leader>A",
 				function()
-					require("harpoon"):list():append()
+					require("harpoon"):list():add()
 				end,
 				desc = "H[A]rpoon File",
 			},
@@ -545,13 +545,13 @@ require("lazy").setup({
 
 	{
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"bluz71/vim-moonfly-colors",
+		"catppuccin/nvim",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
-		name = "moonfly",
+		flavour = "mocha",
 		config = function()
 			-- Load the colorscheme here
-			vim.cmd.colorscheme("moonfly")
+			vim.cmd.colorscheme("catppuccin")
 			-- You can configure highlights by doing something like
 		end,
 	},
