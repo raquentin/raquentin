@@ -19,5 +19,6 @@ alias cd="z"
 alias cat="bat"
 alias lg="lazygit"
 alias q="exit"
+alias k8s="kubectl"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)

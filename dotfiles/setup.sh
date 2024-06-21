@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DOTFILES_DIR="$HOME/c/raquentin/dotfiles"
+DOTFILES_DIR="$HOME/raquentin/dotfiles"
 TARGET_DIR="$HOME"
 
 setopt EXTENDED_GLOB NULL_GLOB
