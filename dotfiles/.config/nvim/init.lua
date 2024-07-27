@@ -478,7 +478,16 @@ require("lazy").setup({
 	-- 		require("copilot_cmp").setup()
 	-- 	end,
 	-- },
-	--
+
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({
+				disable_keymaps = true,
+			})
+		end,
+	},
+
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -534,6 +543,7 @@ require("lazy").setup({
 					end, { "i", "s" }),
 				}),
 				sources = {
+					{ name = "supermaven", group_index = 2 },
 					{ name = "copilot", group_index = 2 },
 					{ name = "nvim_lsp", group_index = 2 },
 					{ name = "path", group_index = 2 },

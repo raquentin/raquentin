@@ -11,8 +11,7 @@ plugins=(git)
 #source 'Users/race.williams/google-cloud-sdk/completion.zsh.inc'
 
 # golang
-#export GOPATH=$HOME/go
-#export PATH="/usr/local/opt/go@1.20/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 alias ls="eza"
 alias cd="z"
@@ -20,3 +19,5 @@ alias cat="bat"
 alias lg="lazygit"
 alias q="exit"
 eval "$(zoxide init zsh)"
+
+[ -f "/home/rwilliams/.ghcup/env" ] && . "/home/rwilliams/.ghcup/env" # ghcup-env
