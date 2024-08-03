@@ -1,6 +1,6 @@
 # zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="lambda"
+ZSH_THEME="lamb"
 source $ZSH/oh-my-zsh.sh
 zstyle ':omz:update' mode reminder
 COMPLETION_WAITING_DOTS="true"
