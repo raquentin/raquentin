@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.have_nerd_font = true
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -10,7 +12,11 @@ vim.opt.number = true -- Make line numbers default
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.showmode = false -- Don't show the mode, since it's already in status line
-vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim.
+
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
+
 vim.opt.breakindent = true -- Enable break indent
 vim.opt.undofile = true -- Save undo history
 vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
@@ -21,13 +27,10 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true -- Configure how new splits should be opened
 vim.opt.splitbelow = true
 vim.opt.list = true -- Sets how neovim will display certain whitespace in the editor.
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
 vim.opt.colorcolumn = "120"
 vim.opt.hlsearch = true -- Set highlight on search, but clear on pressing <Esc> in normal mode
 
@@ -38,9 +41,6 @@ vim.keymap.set("i", "jk", "<Esc>") -- Escape to jk
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- NoNeckPain
@@ -76,13 +76,19 @@ require("lazy").setup({
 
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
-	-- {
-	-- 	"shortcuts/no-neck-pain.nvim", -- center buffer
-	-- 	opts = {
-	-- 		width = "colorcolumn",
-	-- 	},
-	-- },
-	--
+	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
+	},
+
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
@@ -131,21 +137,19 @@ require("lazy").setup({
 
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
-		event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
+		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
 			require("which-key").setup()
+
 			-- Document existing key chains
-			require("which-key").register({
+			require("which-key").add({
 				{ "<leader>c", group = "[C]ode" },
-				{ "<leader>c_", hidden = true },
 				{ "<leader>d", group = "[D]ocument" },
-				{ "<leader>d_", hidden = true },
 				{ "<leader>r", group = "[R]ename" },
-				{ "<leader>r_", hidden = true },
 				{ "<leader>s", group = "[S]earch" },
-				{ "<leader>s_", hidden = true },
 				{ "<leader>w", group = "[W]orkspace" },
-				{ "<leader>w_", hidden = true },
+				{ "<leader>t", group = "[T]oggle" },
+				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 			})
 		end,
 	},
@@ -213,7 +217,7 @@ require("lazy").setup({
 
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
-		event = "VeryLazy",
+		event = "VimEnter",
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -226,7 +230,7 @@ require("lazy").setup({
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
-			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -320,6 +324,8 @@ require("lazy").setup({
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
+
+			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -390,6 +396,16 @@ require("lazy").setup({
 							callback = vim.lsp.buf.clear_references,
 						})
 					end
+
+					-- The following code creates a keymap to toggle inlay hints in your
+					-- code, if the language server you are using supports them
+					--
+					-- This may be unwanted, since they displace some of your code
+					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+						map("<leader>th", function()
+							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+						end, "[T]oggle Inlay [H]ints")
+					end
 				end,
 			})
 
@@ -431,12 +447,8 @@ require("lazy").setup({
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
-						require("lspconfig")[server_name].setup({
-							cmd = server.cmd,
-							settings = server.settings,
-							filetypes = server.filetypes,
-							capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
-						})
+						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						require("lspconfig")[server_name].setup(server)
 					end,
 				},
 			})
@@ -445,44 +457,40 @@ require("lazy").setup({
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				"<leader>f",
+				function()
+					require("conform").format({ async = true, lsp_fallback = true })
+				end,
+				mode = "",
+				desc = "[F]ormat buffer",
+			},
+		},
 		opts = {
 			notify_on_error = false,
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
+			format_on_save = function(bufnr)
+				-- Disable "format_on_save lsp_fallback" for languages that don't
+				-- have a well standardized coding style. You can add additional
+				-- languages here or re-enable it for the disabled ones.
+				local disable_filetypes = { c = true, cpp = true }
+				return {
+					timeout_ms = 500,
+					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+				}
+			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "isort", "black" },
-				rust = { "rustfmt" },
-				scala = { "scalafmt" },
-				css = { "stylelint" },
-				json = { "yq" },
-				cmake = { "cmake_format" },
-				c = { "clang_format" },
-				cpp = { "clang_format" },
-				javascript = { { "prettierd", "prettier" } },
+				-- Conform can also run multiple formatters sequentially
+				-- python = { "isort", "black" },
+				--
+				-- You can use 'stop_after_first' to run the first available formatter from the list
+				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
-
-	-- { -- Copilot
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({
-	-- 			suggestion = { enabled = false },
-	-- 			panel = { enabled = false },
-	-- 		})
-	-- 	end,
-	-- },
-	-- { -- Copilot working with cmp
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	config = function()
-	-- 		require("copilot_cmp").setup()
-	-- 	end,
-	-- },
 
 	{
 		"supermaven-inc/supermaven-nvim",
@@ -498,15 +506,7 @@ require("lazy").setup({
 		event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
-			{
-				"L3MON4D3/LuaSnip",
-				build = (function()
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-			},
+			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 
 			-- Adds other completion capabilities.
@@ -532,6 +532,10 @@ require("lazy").setup({
 				mapping = cmp.mapping.preset.insert({
 					["<C-n>"] = cmp.mapping.select_next_item(), -- Select the [n]ext item
 					["<C-p>"] = cmp.mapping.select_prev_item(), -- Select the [p]revious item
+
+					["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+
 					["<C-y>"] = cmp.mapping.confirm({ select = true }), -- Accept ([y]es) the completion.
 					["<C-Space>"] = cmp.mapping.complete({}), -- Manually trigger a completion from nvim-cmp.
 					-- <c-l> will move you to the right of each of the expansion locations.
@@ -548,11 +552,14 @@ require("lazy").setup({
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "supermaven", group_index = 2 },
-					{ name = "copilot", group_index = 2 },
-					{ name = "nvim_lsp", group_index = 2 },
-					{ name = "path", group_index = 2 },
-					{ name = "luasnip", group_index = 2 },
+					{
+						name = "lazydev",
+						group_index = 0,
+					},
+					{ name = "supermaven" },
+					{ name = "nvim_lsp" },
+					{ name = "path" },
+					{ name = "luasnip" },
 				},
 			})
 		end,
@@ -588,12 +595,13 @@ require("lazy").setup({
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
+			--
+			local statusline = require("mini.statusline")
+			statusline.setup({ use_icons = vim.g.have_nerd_font })
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
-			require("mini.statusline").setup()
 		end,
 	},
 
@@ -609,6 +617,7 @@ require("lazy").setup({
 					"bash",
 					"c",
 					"html",
+					"diff",
 					"lua",
 					"markdown",
 					"vim",
@@ -629,7 +638,11 @@ require("lazy").setup({
 			})
 		end,
 	},
-}, {})
+}, {
+	ui = {
+		icons = vim.g.have_nerd_font and {} or {},
+	},
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
