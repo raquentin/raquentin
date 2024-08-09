@@ -6,7 +6,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Moonfly (Gogh)"
 
 config.font_size = 16
 config.font = wezterm.font("JetBrains Mono")
