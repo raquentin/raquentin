@@ -34,17 +34,21 @@ vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below
 vim.opt.colorcolumn = "120"
 vim.opt.hlsearch = true -- Set highlight on search, but clear on pressing <Esc> in normal mode
 
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+
 -- [[ Basic Keymaps ]]
 -- See `:help vim.keymap.set()`
 --
 vim.keymap.set("i", "jk", "<Esc>") -- Escape to jk
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+vim.keymap.set("n", "<leader>te", "<cmd>ToggleTerm direction=float<CR>", { desc = "Open [Te]rminal" })
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
--- NoNeckPain
---[[ vim.keymap.set("n", "<leader>n", "<cmd>NoNeckPain<CR>", { desc = "Toggle [N]eck Pain" }) ]]
 
 -- [[ Basic Autocommands ]]
 --  See :help lua-guide-autocommands
@@ -127,6 +131,27 @@ require("lazy").setup({
 		end,
 	},
 
+	-- lazygit
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- setting the keybinding for LazyGit with 'keys' is recommended in
+		-- order to load the plugin when the command is run for the first time
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
+	},
+
 	{ -- autoclose brackets and symbols
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -153,6 +178,8 @@ require("lazy").setup({
 			})
 		end,
 	},
+
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
 	{
 		"ThePrimeagen/harpoon",
@@ -622,7 +649,6 @@ require("lazy").setup({
 					"markdown",
 					"vim",
 					"vimdoc",
-					"scala",
 					"rust",
 					"python",
 					"json",
@@ -645,4 +671,4 @@ require("lazy").setup({
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=4 sts=4 sw=4 et
