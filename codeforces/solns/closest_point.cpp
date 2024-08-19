@@ -11,10 +11,17 @@ int main() {
         int n;
         cin >> n;
 
-        if (n > 2) {
-            cout << "NO";
+        vector<int> v;
+        int temp;
+        for (int i = 0; i < n; i++) {
+            cin >> temp;
+            v.push_back(temp);
+        }
+
+        if (n == 2 && v[1] - v[0] > 1) {
+            cout << "YES\n";
         } else {
-            cout << "YES";
+            cout << "NO\n";
         }
     }
 
