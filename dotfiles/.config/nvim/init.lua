@@ -342,6 +342,13 @@ require("lazy").setup({
 
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				clangd = {
+					mason = false,
+				},
+			},
+		},
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for neovim
 			"williamboman/mason.nvim",
@@ -357,6 +364,7 @@ require("lazy").setup({
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.gleam.setup({})
+			lspconfig.clangd.setup({})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
