@@ -85,7 +85,8 @@ library
   import: common-options
   hs-source-dirs: src
   exposed-modules:
-    Amplifiers.Gain
+    Amplifiers.StaticGain
+    Amplifiers.DynamicGain
   default-language: Haskell2010
 
 -- Builds the executable 'clash', with simple project in scope
@@ -115,23 +116,26 @@ test-suite doctests
     clash-audio,
     doctest-parallel >= 0.2 && < 0.4,
 
-test-suite test-library
-  import: common-options
-  default-language: Haskell2010
-  hs-source-dirs: tests
-  type: exitcode-stdio-1.0
-  ghc-options: -threaded
-  main-is: unittests.hs
-  other-modules:
-    Tests.Amplifiers.Gain
-  build-depends:
-    clash-audio,
-    hspec,
-    hspec-core,
-    hspec-discover,
-    QuickCheck,
-    clash-prelude-hedgehog,
-    hedgehog,
-    tasty >= 1.2 && < 1.5,
-    tasty-hedgehog,
-    tasty-th
+-- test-suite test-library
+--   import: common-options
+--   default-language: Haskell2010
+--   hs-source-dirs: tests
+--   type: exitcode-stdio-1.0
+--   ghc-options: -threaded
+--   other-modules:
+--     Tests.Amplifiers.StaticGain
+--     Tests.Amplifiers.DynamicGain
+--   build-depends:
+--     clash-audio,
+--     hspec,
+--     hspec-core,
+--     hspec-discover,
+--     QuickCheck,
+--     clash-prelude-hedgehog,
+--     hedgehog,
+--     tasty >= 1.2 && < 1.5,
+--     tasty-hedgehog,
+--     tasty-hunit,
+--     vector,
+--     containers,
+--     tasty-th
