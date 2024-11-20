@@ -31,3 +31,11 @@ Verilog entity will be written to `/verilog/<CoreType>.<CoreName>.topEntity/<Cor
 ### Creating AMD Xilinx Project Files
 
 See `/examples` with constraints and Tcl files. These files generate Vivado project files to show how different cores work.
+
+## Resources
+
+- Getting Started with FPGAs by Russell Merrick
+- Retrocomputing with Clash: Haskell for FPGA Hardware Design by Gergo Erdi
+- Haskell Programming from First Principles by Christopher Allen and Julie Moronu
+- Advanced Digital Design with the Verilog HDL by Michael Ciletti
+- Haskell for Imperative Programmers by Philipp Hagenlocher
