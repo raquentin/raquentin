@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,400&display=swap');
+
+html, body, #root {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', -apple-system !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #333333; /* TODO: move this to react component*/
+}
