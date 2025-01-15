@@ -3,3 +3,5 @@ gh
 
 *.out
 build/
+dist_newstyle/
+builds/
