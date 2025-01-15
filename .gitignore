@@ -1,2 +1,5 @@
 gcloud/
 gh
+
+*.out
+build/
