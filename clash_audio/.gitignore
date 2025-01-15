@@ -1,0 +1,4 @@
+dist-newstyle/
+verilog/
+.ghc.environment.*
+project/
