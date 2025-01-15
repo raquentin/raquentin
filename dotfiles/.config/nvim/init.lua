@@ -11,7 +11,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true -- Make line numbers default
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.showmode = false -- Don't show the mode, since it's already in status line
+vim.opt.showmode = false -- Don't show the mode, since it's already in status linej
 
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
@@ -365,6 +365,9 @@ require("lazy").setup({
 			local lspconfig = require("lspconfig")
 			lspconfig.gleam.setup({})
 			lspconfig.clangd.setup({})
+			lspconfig.ocamllsp.setup({})
+			lspconfig.hls.setup({})
+			lspconfig.ols.setup({})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -525,15 +528,6 @@ require("lazy").setup({
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
-	},
-
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({
-				disable_keymaps = true,
-			})
-		end,
 	},
 
 	{ -- Autocompletion

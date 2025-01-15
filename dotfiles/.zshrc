@@ -13,6 +13,18 @@ plugins=(git)
 # golang
 export PATH=$PATH:/usr/local/go/bin
 
+# odin
+#
+#
+export PATH=$PATH:/home/rwilliams/dep/Odin
+
+# fly
+export FLYCTL_INSTALL="/home/rwilliams/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# ocaml
+[[ ! -r '/home/rwilliams/.opam/opam-init/init.zsh' ]] || source '/home/rwilliams/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
 alias ls="eza"
 alias cd="z"
 alias cat="bat"

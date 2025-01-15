@@ -8,7 +8,7 @@ end
 
 config.color_scheme = "Moonfly (Gogh)"
 
-config.font_size = 16
+config.font_size = 20
 config.font = wezterm.font("JetBrains Mono")
 config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
