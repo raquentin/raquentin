@@ -1,0 +1,18 @@
+[package]
+name = "dyck"
+version = "0.1.0"
+edition = "2021"
+authors = ["Race Williams <race@raquent.in>"]
+repository = "https://github.com/raquentin/dyck"
+documentation = "https://docs.rs/dyck"
+keywords = ["dyck", "spa", "grammar"]
+license = "MIT"
+description = "A crate for running Dyck and InterDyck algorithms over languages of generic <T> token enum instances or string slice types."
+readme = "../README.md"
+
+[features]
+default = []
+derive = ["dyck-derive"]
+
+[dependencies]
+dyck-derive = { version = "0.1.0", path = "../dyck-derive/", optional = true}
