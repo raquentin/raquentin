@@ -1,1 +1,1 @@
-Hi. I’m an American CS undergrad primarily working on programming languages and developer tools.
+Hi. I’m an American CS undergrad. I enjoy developer tooling and unpragmatic programming.
